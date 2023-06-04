@@ -8,6 +8,7 @@ use App\Models\Product;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Auth;
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
@@ -287,6 +288,47 @@ class CartController extends Controller
 
         Session::forget('coupon');
         return response()->json(['success' => 'Coupon Supprimé ']);
+
+    } // End Method
+
+    public function CheckoutCreate()
+    {
+
+        if (Auth::check()) {
+
+            if (Cart::total() > 0) {
+
+                $carts = Cart::content();
+                $cartQty = Cart::count();
+                $cartTotal = Cart::total();
+
+                return view('frontend.checkout.checkout_view', compact('carts', 'cartQty', 'cartTotal'));
+
+
+            } else {
+
+                $notification = array(
+                    'message' => 'Acheter au moins 1 Article',
+                    'alert-type' => 'error'
+                );
+
+                return redirect()->to('/')->with($notification);
+            }
+
+
+
+        } else {
+
+            $notification = array(
+                'message' => 'Se Connecter pour procéder',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->route('login')->with($notification);
+        }
+
+
+
 
     } // End Method
 

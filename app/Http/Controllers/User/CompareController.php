@@ -23,14 +23,14 @@ class CompareController extends Controller
                     'created_at' => Carbon::now(),
 
                 ]);
-                return response()->json(['success' => 'Ajouté pour comparer']);
+                return response()->json(['success' => 'Successfully Added On Your Compare']);
             } else {
-                return response()->json(['error' => 'Article déjà ajouté!']);
+                return response()->json(['error' => 'This Product Has Already on Your Compare']);
 
             }
 
         } else {
-            return response()->json(['error' => 'Se connecter pour procéder']);
+            return response()->json(['error' => 'At First Login Your Account']);
         }
 
     } // End Method
@@ -49,14 +49,12 @@ class CompareController extends Controller
 
         return response()->json(['compare' => $compare, 'compQty' => $compQty]);
 
-    }
-    // End Method
+    } // End Method
 
     public function CompareRemove($id)
     {
 
         Compare::where('user_id', Auth::id())->where('id', $id)->delete();
-        return response()->json(['success' => 'Article Supprimé!']);
-    }
-// End Method
+        return response()->json(['success' => 'Successfully Product Remove']);
+    } // End Method
 }
