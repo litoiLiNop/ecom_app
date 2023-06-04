@@ -32,13 +32,13 @@
                                     <th class="custome-checkbox start pl-30">
 
                                     </th>
-                                    <th scope="col" colspan="2">Aticle</th>
-                                    <th scope="col">Prix Unitaire</th>
+                                    <th scope="col" colspan="2">Article</th>
+                                    <th scope="col">P.U</th>
                                     <th scope="col">Couleur</th>
                                     <th scope="col">Mesure</th>
                                     <th scope="col">Taille</th>
-                                    <th scope="col">Quantité</th>
-                                    <th scope="col">Subtotal</th>
+                                    <th scope="col">Qté</th>
+                                    <th scope="col">SousTotal</th>
                                     <th scope="col" class="end">Supprimer</th>
                                 </tr>
                             </thead>
@@ -52,25 +52,25 @@
 
                     <div class="row mt-50">
   <div class="col-lg-5">
-   {{-- @if(Session::has('coupon'))
+   @if(Session::has('coupon'))
 
-   @else --}}
+   @else
 
 
         <div class="p-40" id="couponField">
             <h4 class="mb-10">Utiliser le Coupon</h4>
-            <p class="mb-30"><span class="font-lg text-muted">Vous avez un code promo?</p>
+            <p class="mb-30"><span class="font-lg text-muted">Vous avez un Promo Code?</p>
             <form action="#">
                 <div class="d-flex justify-content-between">
 
-    <input class="font-medium mr-15 coupon" id="coupon_name" placeholder="Renseigner Votre Coupon">
+    <input class="font-medium mr-15 coupon" id="coupon_name" placeholder=" Votre Coupon ici">
 
   <a type="submit" onclick="applyCoupon()" class="btn btn-success"><i class="fi-rs-label mr-10"></i>Soumettre</a>
                 </div>
             </form>
         </div>
 
-   {{-- @endif    --}}
+   @endif
    </div>
 
 

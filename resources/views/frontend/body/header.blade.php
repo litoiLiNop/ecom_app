@@ -123,7 +123,7 @@
 
 
             <div class="header-action-icon-2">
-                <a class="mini-cart-icon" href="shop-cart.html">
+                <a class="mini-cart-icon" href="{{ route('mycart') }}">
                     <img alt="Dôvv" src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg') }}" />
                     <span class="pro-count blue" id="cartQty">0 </span>
                 </a>
