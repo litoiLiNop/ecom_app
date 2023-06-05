@@ -105,7 +105,7 @@
 <div class="col-lg-5">
 <div class="border p-40 cart-totals ml-30 mb-50">
     <div class="d-flex align-items-end justify-content-between mb-30">
-        <h4>Your Order</h4>
+        <h4>Ta Commande</h4>
 
     </div>
     <div class="divider-2 mb-30"></div>
@@ -120,7 +120,7 @@
                         <div class="product-rate-cover">
 
                          <strong>Couleur :{{ $item->options->color }} </strong> <br>
-                         <strong>Mesure :{{ $item->options->color }} </strong> <br>
+                         <strong>Mesure :{{ $item->options->format }} </strong> <br>
                          <strong>Taille : {{ $item->options->size }}</strong>
 
                         </div>
@@ -129,7 +129,7 @@
                         <h6 class="text-muted pl-20 pr-20">x {{ $item->qty }}</h6>
                     </td>
                     <td>
-                        <h4 class="text-brand">${{ $item->price }}</h4>
+                        <h4 class="text-brand">{{ $item->price }} Fcfa</h4>
                     </td>
                 </tr>
                 @endforeach
@@ -149,7 +149,7 @@
                     <h6 class="text-muted">SousTotal</h6>
                 </td>
                 <td class="cart_total_amount">
-                    <h4 class="text-brand text-end">${{ $cartTotal }}</h4>
+                    <h4 class="text-brand text-end">{{ $cartTotal }} Fcfa</h4>
                 </td>
             </tr>
 
