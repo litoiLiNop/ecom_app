@@ -23,6 +23,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
+use App\Http\Controllers\User\CheckoutController;
 
 
 /*
@@ -352,6 +353,16 @@ Route::middleware(['auth', 'role:user'])->group(function () {
         Route::get('/get-compare-product', 'GetCompareProduct');
 
         Route::get('/compare-remove/{id}', 'CompareRemove');
+    });
+
+    // Checkout All Route
+    Route::controller(CheckoutController::class)->group(function () {
+        Route::get('/ville-get/ajax/{region_id}', 'VilleGetAjax');
+        Route::get('/quartier-get/ajax/{ville_id}', 'QuartierGetAjax');
+
+        // Route::post('/checkout/store', 'CheckoutStore')->name('checkout.store');
+
+
     });
 
 
