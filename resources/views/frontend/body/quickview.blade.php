@@ -76,6 +76,7 @@
         <ul>
             <li class="mb-5">Marque: <span class="text-brand" id="pbrand"> </span></li>
             <li class="mb-5">Categorie:<span class="text-brand" id="pcategory"> </span></li>
+            <li class="mb-5">Boutique:<span class="text-brand" id="pvendor_id"> </span></li>
         </ul>
     </div>
 

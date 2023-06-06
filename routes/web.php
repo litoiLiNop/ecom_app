@@ -24,6 +24,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\StripeController;
 
 
 /*
@@ -360,7 +361,13 @@ Route::middleware(['auth', 'role:user'])->group(function () {
         Route::get('/ville-get/ajax/{region_id}', 'VilleGetAjax');
         Route::get('/quartier-get/ajax/{ville_id}', 'QuartierGetAjax');
 
-        // Route::post('/checkout/store', 'CheckoutStore')->name('checkout.store');
+        Route::post('/checkout/store', 'CheckoutStore')->name('checkout.store');
+    });
+
+    // Stripe All Route
+    Route::controller(StripeController::class)->group(function () {
+        Route::post('/stripe/order', 'StripeOrder')->name('stripe.order');
+        Route::post('/cash/order', 'CashOrder')->name('cash.order');
 
 
     });

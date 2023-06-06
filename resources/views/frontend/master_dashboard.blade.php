@@ -22,6 +22,10 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css?v=5.3') }}" />
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+
 </head>
 
 <body>
@@ -215,7 +219,7 @@
 
          var product_name = $('#pname').text();
          var id = $('#product_id').val();
-        //  var vendor = $('#pvendor_id').text();
+         var vendor = $('#pvendor_id').text();
          var color = $('#color option:selected').text();
          var format = $('#format option:selected').text();
          var size = $('#size option:selected').text();
@@ -224,13 +228,13 @@
             type: "POST",
             dataType : 'json',
             data:{
-                color:color, format:format, size:size, quantity:quantity,product_name:product_name
+                color:color, format:format, size:size, quantity:quantity,product_name:product_name, vendor:vendor
             },
             url: "/cart/data/store/"+id,
             success:function(data){
                 miniCart();
                 $('#closeModal').click();
-                console.log(data)
+                // console.log(data)
 
                 // Start Message
 
@@ -268,7 +272,7 @@
 
 var product_name = $('#dpname').text();
 var id = $('#dproduct_id').val();
-//  var vendor = $('#vproduct_id').val();
+ var vendor = $('#vproduct_id').val();
 var color = $('#dcolor option:selected').text();
 var format = $('#dformat option:selected').text();
 var size = $('#dsize option:selected').text();
@@ -277,8 +281,7 @@ $.ajax({
    type: "POST",
    dataType : 'json',
    data:{
-       color:color, format:format, size:size, quantity:quantity,product_name:product_name
-       // , vendor:vendor
+       color:color, format:format, size:size, quantity:quantity,product_name:product_name, vendor:vendor
    },
    url: "/dcart/data/store/"+id,
    success:function(data){

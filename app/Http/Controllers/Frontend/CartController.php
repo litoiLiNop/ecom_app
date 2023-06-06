@@ -17,9 +17,9 @@ class CartController extends Controller
     public function AddToCart(Request $request, $id)
     {
         //Removing the coupon in the checkout
-        // if (Session::has('coupon')) {
-        //     Session::forget('coupon');
-        // }
+        if (Session::has('coupon')) {
+            Session::forget('coupon');
+        }
 
         $product = Product::findOrFail($id);
 
@@ -37,7 +37,7 @@ class CartController extends Controller
                     'color' => $request->color,
                     'format' => $request->format,
                     'size' => $request->size,
-                    // 'vendor' => $request->vendor,
+                    'vendor' => $request->vendor,
                 ],
             ]);
 
@@ -69,9 +69,9 @@ class CartController extends Controller
 
     public function AddToCartDetails(Request $request, $id)
     {
-        // if (Session::has('coupon')) {
-        //     Session::forget('coupon');
-        // }
+        if (Session::has('coupon')) {
+            Session::forget('coupon');
+        }
 
         $product = Product::findOrFail($id);
 
@@ -89,7 +89,7 @@ class CartController extends Controller
                     'color' => $request->color,
                     'format' => $request->format,
                     'size' => $request->size,
-                    // 'vendor' => $request->vendor,
+                    'vendor' => $request->vendor,
                 ],
             ]);
 
@@ -109,7 +109,7 @@ class CartController extends Controller
                     'color' => $request->color,
                     'format' => $request->format,
                     'size' => $request->size,
-                    // 'vendor' => $request->vendor,
+                    'vendor' => $request->vendor,
 
                 ],
             ]);

@@ -25,7 +25,8 @@
 
     <div class="row">
         <h4 class="mb-30">Détails Facture</h4>
-        <form method="post">
+        <form method="post" action="{{ route('checkout.store') }}">
+        	@csrf
 
 
             <div class="row">
@@ -68,7 +69,7 @@
         </div>
                                 <div class="form-group col-lg-6">
 
-      <input required="" type="text" name="post_code" placeholder="Heure de Liivraison *">
+      <input required="" type="text" name="post_code" placeholder="Heure de Livraison *">
                                 </div>
                             </div>
 
@@ -92,12 +93,11 @@
 
 
                             <div class="form-group mb-30">
-        <textarea rows="5" placeholder="Additional information" name="notes"></textarea>
+        <textarea rows="5" placeholder="Autres informations" name="notes"></textarea>
                             </div>
 
 
 
-                        </form>
                     </div>
                 </div>
 
@@ -119,9 +119,9 @@
                         <h6 class="w-160 mb-5"><a href="shop-product-full.html" class="text-heading">{{ $item->name }}</a></h6></span>
                         <div class="product-rate-cover">
 
-                         <strong>Couleur :{{ $item->options->color }} </strong> <br>
-                         <strong>Mesure :{{ $item->options->format }} </strong> <br>
-                         <strong>Taille : {{ $item->options->size }}</strong>
+                         <strong>Couleur: {{ $item->options->color }} </strong> <br>
+                         <strong>Mesure: {{ $item->options->format }} </strong> <br>
+                         <strong>Taille: {{ $item->options->size }}</strong>
 
                         </div>
                     </td>
@@ -129,7 +129,7 @@
                         <h6 class="text-muted pl-20 pr-20">x {{ $item->qty }}</h6>
                     </td>
                     <td>
-                        <h4 class="text-brand">{{ $item->price }} Fcfa</h4>
+                        <h4 class="text-brand">{{ $item->price }}</h4>
                     </td>
                 </tr>
                 @endforeach
@@ -212,30 +212,36 @@
                         <h4 class="mb-30">Paiement</h4>
                         <div class="payment_option">
                             <div class="custome-radio">
-                                <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios3" checked="">
-                                <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#bankTranfer" aria-controls="bankTranfer">Direct Bank Transfer</label>
+
+                                <input class="form-check-input" required="" type="radio" name="payment_option" value="stripe" id="exampleRadios3" checked="">
+
+                                <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#bankTranfer" aria-controls="bankTranfer">Stripe</label>
                             </div>
                             <div class="custome-radio">
-                                <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios4" checked="">
+
+                                <input class="form-check-input" required="" type="radio" name="payment_option" value="cash" id="exampleRadios4" checked="">
+
                                 <label class="form-check-label" for="exampleRadios4" data-bs-toggle="collapse" data-target="#checkPayment" aria-controls="checkPayment">Cash à la Livraison</label>
                             </div>
                             <div class="custome-radio">
-                                <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios5" checked="">
+                                <input class="form-check-input" value="card" required="" type="radio" name="payment_option" id="exampleRadios5" checked="">
+
                                 <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse" data-target="#paypal" aria-controls="paypal">Online Getway</label>
                             </div>
                         </div>
                         <div class="payment-logo d-flex">
-                            <img class="mr-15" src="assets/imgs/theme/icons/payment-paypal.svg" alt="">
-                            <img class="mr-15" src="assets/imgs/theme/icons/payment-visa.svg" alt="">
-                            <img class="mr-15" src="assets/imgs/theme/icons/payment-master.svg" alt="">
-                            <img src="assets/imgs/theme/icons/payment-zapper.svg" alt="">
-                        </div>
-                        <a href="#" class="btn btn-fill-out btn-block mt-30">Placer la commande<i class="fi-rs-sign-out ml-15"></i></a>
+            <img class="mr-15" src="{{ asset('frontend/assets/imgs/theme/icons/payment-paypal.svg') }}" alt="">
+            <img class="mr-15" src="{{ asset('frontend/assets/imgs/theme/icons/payment-visa.svg') }}" alt="">
+            <img class="mr-15" src="{{ asset('frontend/assets/imgs/theme/icons/payment-master.svg') }}" alt="">
+            <img src="{{ asset('frontend/assets/imgs/theme/icons/payment-zapper.svg') }}" alt="">
+        </div>
+                        <button type="submit" class="btn btn-fill-out btn-block mt-30">Soumettre la commande<i class="fi-rs-sign-out ml-15"></i></button>
                     </div>
                 </div>
             </div>
         </div>
 
+    </form>
 
 
 <script type="text/javascript">
@@ -249,7 +255,7 @@
   						type: "GET",
   						dataType:"json",
   						success:function(data){
-  							$('select[name="ville_id"]').html('');
+  							$('select[name="quartier_id"]').html('');
   							var d =$('select[name="ville_id"]').empty();
   							$.each(data, function(key, value){
   								$('select[name="ville_id"]').append('<option value="'+ value.id + '">' + value.ville_name + '</option>');
