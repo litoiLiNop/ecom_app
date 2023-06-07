@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Accueil</a>
-                    <span></span> Mon Compte
+                    <span></span>Suivre la Commande
                 </div>
             </div>
         </div>
@@ -18,8 +18,8 @@
 <div class="row">
 
 <!-- // Start Col md 3 menu -->
-    @include('frontend.body.dashboard_sidebar_menu')
 
+ @include('frontend.body.dashboard_sidebar_menu')
 <!-- // End Col md 3 menu -->
 
 
@@ -28,19 +28,32 @@
 <div class="col-md-9">
 <div class="tab-content account dashboard-content pl-50">
 <div class="tab-pane fade active show" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
-    <div class="card">
+   <div class="card">
         <div class="card-header">
-            <h3 class="mb-0">Salut {{ Auth::user()->name }}!</h3>
-            <br>
-              <img id="showImage" src="{{ (!empty($userData->photo)) ? url('upload/user_images/'.$userData->photo):url('upload/no_image.jpg') }}" alt="User" class="rounded-circle p-1 bg-primary" width="110">
-
-
+            <h5>Suivez Votre Commande</h5>
         </div>
         <div class="card-body">
-            <p>
-                From your account dashboard. you can easily check &amp; view your <a href="#">recent orders</a>,<br />
-                manage your <a href="#">shipping and billing addresses</a> and <a href="#">edit your password and account details.</a>
-            </p>
+
+
+
+    <form method="post" action="{{ route('order.tracking') }}" >
+            @csrf
+
+<div class="row">
+
+    <div class="form-group col-md-12">
+        <label>Code <span class="required">*</span></label>
+        <input  class="form-control" name="code" type="text" placeholder="Your Order Invoice Number" required="" />
+
+    </div>
+
+
+
+    <div class="col-md-12">
+        <button type="submit" class="btn btn-fill-out submit font-weight-bold" name="submit" value="Submit">Soumettre</button>
+    </div>
+</div>
+            </form>
         </div>
     </div>
 </div>
@@ -57,6 +70,7 @@
                 </div>
             </div>
         </div>
+
 
 
 

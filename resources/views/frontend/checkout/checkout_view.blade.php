@@ -7,14 +7,14 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Accueil</a>
-                    <span></span> Checkout
+                    <span></span> Caisse
                 </div>
             </div>
         </div>
         <div class="container mb-80 mt-50">
             <div class="row">
                 <div class="col-lg-8 mb-40">
-                    <h3 class="heading-2 mb-10">Checkout</h3>
+                    <h3 class="heading-2 mb-10">Caisse</h3>
                     <div class="d-flex justify-content-between">
                         <h6 class="text-body">There are products in your cart</h6>
                     </div>
@@ -44,7 +44,7 @@
 	    <div class="form-group col-lg-6">
 	        <div class="custom_select">
 	            <select name="region_id" class="form-control">
-	                <option value="">Select Région...</option>
+	                <option value="">Choisir une Région...</option>
 	                @foreach($regions as $item)
 	                <option value="{{ $item->id }}">{{ $item->region_name }}</option>
 	                @endforeach
@@ -105,7 +105,7 @@
 <div class="col-lg-5">
 <div class="border p-40 cart-totals ml-30 mb-50">
     <div class="d-flex align-items-end justify-content-between mb-30">
-        <h4>Ta Commande</h4>
+        <h4>Votre Commande</h4>
 
     </div>
     <div class="divider-2 mb-30"></div>

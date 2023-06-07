@@ -161,6 +161,29 @@
 
             </ul>
         </li>
+
+
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
+                <div class="menu-title">Gestion Commandes </div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('pending.order') }}"><i class="bx bx-right-arrow-alt"></i>En attente</a>
+                </li>
+                <li> <a href="{{ route('admin.confirmed.order') }}"><i class="bx bx-right-arrow-alt"></i>Confirmées </a>
+                </li>
+                <li> <a href="{{ route('admin.processing.order') }}"><i class="bx bx-right-arrow-alt"></i>Process</a>
+                </li>
+                <li> <a href="{{ route('admin.delivered.order') }}"><i class="bx bx-right-arrow-alt"></i>Lvrées</a>
+                </li>
+
+            </ul>
+        </li>
+
+
+
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
