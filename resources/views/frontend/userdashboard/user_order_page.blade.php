@@ -60,14 +60,14 @@
 @if($order->status == 'pending')
 <span class="badge rounded-pill bg-warning">En Attente</span>
 @elseif($order->status == 'confirm')
-<span class="badge rounded-pill bg-info">Confirmé</span>
+<span class="badge rounded-pill bg-info">Confirmée</span>
 @elseif($order->status == 'processing')
 <span class="badge rounded-pill bg-dark">En progrès</span>
-@elseif($order->status == 'deliverd')
-<span class="badge rounded-pill bg-success">Livré</span>
+@elseif($order->status == 'delivered')
+<span class="badge rounded-pill bg-success">Livrée</span>
 
 @if($order->return_order == 1)
-<span class="badge rounded-pill " style="background:red;">Retour</span>
+<span class="badge rounded-pill " style="background:red;">Renvoi</span>
 @endif
 
 @endif

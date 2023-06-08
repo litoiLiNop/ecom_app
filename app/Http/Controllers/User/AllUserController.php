@@ -75,7 +75,7 @@ class AllUserController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'Requête a été envoyée!',
+            'message' => 'Requête envoyée!',
             'alert-type' => 'success'
         );
 

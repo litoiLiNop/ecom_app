@@ -33,16 +33,17 @@ $(function () {
 
         Swal.fire({
             title: "Confirmer?",
-            text: "Once Confirm, You will not be able to pending again?",
+            text: "Une fois confirmée, Vous ne pourrez plus la mettre en attente?",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, Confirm!",
+            confirmButtonText: "Oui, Confirmer!",
+            cancelButtonText: "Annuler",
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = link;
-                Swal.fire("Confirm!", "Confirm Change", "success");
+                Swal.fire("Confirmation!", " Changement de statut", "success");
             }
         });
     });
@@ -56,17 +57,18 @@ $(function () {
         var link = $(this).attr("href");
 
         Swal.fire({
-            title: "Are you sure to Processing?",
-            text: "Once Processing, You will not be able to pending again?",
+            title: "Engager le Processus?",
+            text: "Une fois engagée, Vous ne pourrez plus revenir en arrière?",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, Processing!",
+            confirmButtonText: "Oui, Engager!",
+            cancelButtonText: "Annuler",
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = link;
-                Swal.fire("Processing!", "Processing Change", "success");
+                Swal.fire("Process!", "Processus Engagé", "success");
             }
         });
     });
@@ -80,17 +82,18 @@ $(function () {
         var link = $(this).attr("href");
 
         Swal.fire({
-            title: "Continue to Delivered?",
-            text: "Once Delivered, You will not be able to pending again?",
+            title: "Envoi?",
+            text: "Une fois livrée, Vous ne pourrez plus réengager le Process?",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, Delivered!",
+            confirmButtonText: "Oui, Envoyer!",
+            cancelButtonText: "Annuler",
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = link;
-                Swal.fire("Delivered!", "Delivered Change", "success");
+                Swal.fire("Livraison!", "Article livré", "success");
             }
         });
     });
@@ -104,17 +107,18 @@ $(function () {
         var link = $(this).attr("href");
 
         Swal.fire({
-            title: "Are you sure to Approved?",
-            text: "Return Order Approved",
+            title: "Approuver le Renvoi?",
+            text: "une fois approuvé, Vous ne pourrez plus le changer",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, Approved!",
+            confirmButtonText: "Oui, Approuver!",
+            cancelButtonText: "Annuler",
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = link;
-                Swal.fire("Approved!", "Approved Change", "success");
+                Swal.fire("Approuvé!", "Renvoi approuvé", "success");
             }
         });
     });

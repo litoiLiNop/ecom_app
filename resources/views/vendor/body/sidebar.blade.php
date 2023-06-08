@@ -56,6 +56,12 @@ $status = $vendorId->status;
                     <li> <a href="{{ route('vendor.order') }}"><i class="bx bx-right-arrow-alt"></i>Commandes</a>
                     </li>
 
+                    <li> <a href="{{ route('vendor.return.order') }}"><i class="bx bx-right-arrow-alt"></i>Renvoyées</a>
+                    </li>
+
+                    <li> <a href="{{ route('vendor.complete.return.order') }}"><i class="bx bx-right-arrow-alt"></i>Retournées</a>
+                    </li>
+
 
                 </ul>
             </li>

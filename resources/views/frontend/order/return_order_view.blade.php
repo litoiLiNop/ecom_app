@@ -32,7 +32,7 @@
 <div class="tab-pane fade active show" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
     <div class="card">
         <div class="card-header">
-            <h3 class="mb-0">Vos Commandes</h3>
+            <h3 class="mb-0">Vos Renvois</h3>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -60,13 +60,13 @@
             <td> {{ $order->return_reason }}</td>
             <td>
 @if($order->return_order == 0)
-<span class="badge rounded-pill bg-warning">Pas de requête</span>
+<span class="badge rounded-pill bg-warning">Aucune requête</span>
 
 @elseif($order->return_order == 1)
 <span class="badge rounded-pill bg-danger">En attente</span>
 
 @elseif($order->return_order == 2)
-<span class="badge rounded-pill bg-success">Success</span>
+<span class="badge rounded-pill bg-success">Acceptée</span>
 
 
 @endif
@@ -76,7 +76,7 @@
 
 
      <td><a href="{{ url('user/order_details/'.$order->id) }}" class="btn-sm btn-success"><i class="fa fa-eye"></i> Voir</a>
-     <a href="{{ url('user/invoice_download/'.$order->id) }}" class="btn-sm btn-danger"><i class="fa fa-download"></i> Facture</a>
+     {{-- <a href="{{ url('user/invoice_download/'.$order->id) }}" class="btn-sm btn-danger"><i class="fa fa-download"></i> Facture</a> --}}
             </td>
         </tr>
         @endforeach

@@ -71,12 +71,12 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
-                <div class="menu-title">Gestion Produit</div>
+                <div class="menu-title">Gestion Article</div>
             </a>
             <ul>
-                <li> <a href="{{ route('all.product') }}"><i class="bx bx-right-arrow-alt"></i>Tous les Produits</a>
+                <li> <a href="{{ route('all.product') }}"><i class="bx bx-right-arrow-alt"></i>Tous les Articles</a>
                 </li>
-                <li> <a href="{{ route('add.product') }}"><i class="bx bx-right-arrow-alt"></i>Ajout Produit</a>
+                <li> <a href="{{ route('add.product') }}"><i class="bx bx-right-arrow-alt"></i>Ajout <Article></Article></a>
                 </li>
 
             </ul>
@@ -174,7 +174,7 @@
                 </li>
                 <li> <a href="{{ route('admin.confirmed.order') }}"><i class="bx bx-right-arrow-alt"></i>Confirmées </a>
                 </li>
-                <li> <a href="{{ route('admin.processing.order') }}"><i class="bx bx-right-arrow-alt"></i>Process</a>
+                <li> <a href="{{ route('admin.processing.order') }}"><i class="bx bx-right-arrow-alt"></i>En Process</a>
                 </li>
                 <li> <a href="{{ route('admin.delivered.order') }}"><i class="bx bx-right-arrow-alt"></i>Lvrées</a>
                 </li>
@@ -182,66 +182,39 @@
             </ul>
         </li>
 
-
-
         <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
-                <div class="menu-title">Components</div>
+                <div class="menu-title">Gestion renvois </div>
             </a>
             <ul>
-                <li> <a href="component-alerts.html"><i class="bx bx-right-arrow-alt"></i>Alerts</a>
+                <li> <a href="{{ route('return.request') }}"><i class="bx bx-right-arrow-alt"></i>Requêtes</a>
                 </li>
-                <li> <a href="component-accordions.html"><i class="bx bx-right-arrow-alt"></i>Accordions</a>
-                </li>
-                <li> <a href="component-badges.html"><i class="bx bx-right-arrow-alt"></i>Badges</a>
-                </li>
-                <li> <a href="component-buttons.html"><i class="bx bx-right-arrow-alt"></i>Buttons</a>
-                </li>
-                <li> <a href="component-cards.html"><i class="bx bx-right-arrow-alt"></i>Cards</a>
-                </li>
-                <li> <a href="component-carousels.html"><i class="bx bx-right-arrow-alt"></i>Carousels</a>
-                </li>
-                <li> <a href="component-list-groups.html"><i class="bx bx-right-arrow-alt"></i>List Groups</a>
-                </li>
-                <li> <a href="component-media-object.html"><i class="bx bx-right-arrow-alt"></i>Media Objects</a>
-                </li>
-                <li> <a href="component-modals.html"><i class="bx bx-right-arrow-alt"></i>Modals</a>
-                </li>
-                <li> <a href="component-navs-tabs.html"><i class="bx bx-right-arrow-alt"></i>Navs & Tabs</a>
-                </li>
-                <li> <a href="component-navbar.html"><i class="bx bx-right-arrow-alt"></i>Navbar</a>
-                </li>
-                <li> <a href="component-paginations.html"><i class="bx bx-right-arrow-alt"></i>Pagination</a>
-                </li>
-                <li> <a href="component-popovers-tooltips.html"><i class="bx bx-right-arrow-alt"></i>Popovers & Tooltips</a>
-                </li>
-                <li> <a href="component-progress-bars.html"><i class="bx bx-right-arrow-alt"></i>Progress</a>
-                </li>
-                <li> <a href="component-spinners.html"><i class="bx bx-right-arrow-alt"></i>Spinners</a>
-                </li>
-                <li> <a href="component-notifications.html"><i class="bx bx-right-arrow-alt"></i>Notifications</a>
-                </li>
-                <li> <a href="component-avtars-chips.html"><i class="bx bx-right-arrow-alt"></i>Avatrs & Chips</a>
+                <li> <a href="{{ route('complete.return.request') }}"><i class="bx bx-right-arrow-alt"></i>Appouvées</a>
                 </li>
             </ul>
         </li>
+
         <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-repeat"></i>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
-                <div class="menu-title">Content</div>
+                <div class="menu-title">Gestion Rapports </div>
             </a>
             <ul>
-                <li> <a href="content-grid-system.html"><i class="bx bx-right-arrow-alt"></i>Grid System</a>
+                <li> <a href="{{ route('report.view') }}"><i class="bx bx-right-arrow-alt"></i>Revue</a>
                 </li>
-                <li> <a href="content-typography.html"><i class="bx bx-right-arrow-alt"></i>Typography</a>
+
+                <li> <a href="{{ route('order.by.user') }}"><i class="bx bx-right-arrow-alt"></i> Par Utilisateur</a>
                 </li>
-                <li> <a href="content-text-utilities.html"><i class="bx bx-right-arrow-alt"></i>Text Utilities</a>
-                </li>
+
             </ul>
         </li>
+
+
+
+
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"> <i class="bx bx-donate-blood"></i>

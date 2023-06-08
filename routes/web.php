@@ -16,6 +16,8 @@ use App\Http\Controllers\Backend\VendorOrderController;
 use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\ReturnController;
+use App\Http\Controllers\Backend\ReportController;
 
 use App\Http\Middleware\RedirectIfAuthenticated;
 
@@ -122,10 +124,11 @@ Route::middleware(['auth', 'role:vendor'])->group(function () {
     Route::controller(VendorOrderController::class)->group(function () {
         Route::get('/vendor/order', 'VendorOrder')->name('vendor.order');
 
-        // Route::get('/vendor/return/order', 'VendorReturnOrder')->name('vendor.return.order');
+        Route::get('/vendor/return/order', 'VendorReturnOrder')->name('vendor.return.order');
 
-        // Route::get('/vendor/complete/return/order', 'VendorCompleteReturnOrder')->name('vendor.complete.return.order');
-        // Route::get('/vendor/order/details/{order_id}', 'VendorOrderDetails')->name('vendor.order.details');
+        Route::get('/vendor/complete/return/order', 'VendorCompleteReturnOrder')->name('vendor.complete.return.order');
+
+        Route::get('/vendor/order/details/{order_id}', 'VendorOrderDetails')->name('vendor.order.details');
 
     });
 
@@ -302,6 +305,29 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/processing/delivered/{order_id}', 'ProcessToDelivered')->name('processing-delivered');
 
         Route::get('/admin/invoice/download/{order_id}', 'AdminInvoiceDownload')->name('admin.invoice.download');
+
+    });
+
+    // Return Order All Route
+    Route::controller(ReturnController::class)->group(function () {
+        Route::get('/return/request', 'ReturnRequest')->name('return.request');
+
+        Route::get('/return/request/approved/{order_id}', 'ReturnRequestApproved')->name('return.request.approved');
+
+        Route::get('/complete/return/request', 'CompleteReturnRequest')->name('complete.return.request');
+
+    });
+
+    // Report All Route
+    Route::controller(ReportController::class)->group(function () {
+
+        Route::get('/report/view', 'ReportView')->name('report.view');
+        Route::post('/search/by/date', 'SearchByDate')->name('search-by-date');
+        Route::post('/search/by/month', 'SearchByMonth')->name('search-by-month');
+        Route::post('/search/by/year', 'SearchByYear')->name('search-by-year');
+
+        Route::get('/order/by/user', 'OrderByUser')->name('order.by.user');
+        Route::post('/search/by/user', 'SearchByUser')->name('search-by-user');
 
     });
 

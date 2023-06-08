@@ -32,7 +32,7 @@
 
         <div class="col-md-6">
             <div class="card">
-               <div class="card-header"><h4>Infos pour la Livtaison</h4> </div>
+               <div class="card-header"><h4>Infos pour la Livraison</h4> </div>
                <hr>
                <div class="card-body">
                  <table class="table" style="background:#F4F6FA;font-weight: 600;">
@@ -93,7 +93,7 @@
 
         <div class="col-md-6">
             <div class="card">
-               <div class="card-header"><h4> Détails Cmde :
+               <div class="card-header"><h4> Détails  :
 <span class="text-danger"> Facture: {{ $order->invoice_no }} </span></h4>
                 </div>
                <hr>
@@ -288,7 +288,7 @@ $order = App\Models\Order::where('id',$order->id)->where('return_reason','=',NUL
 
 @else
 
-<h5><span class=" " style="color:red;">Vous avez envoyé une requête de renvoi pour cette article</span></h5><br><br>
+<h5><span class=" " style="color:red;">Vous avez déjà envoyé une requête  renvoi pour cette article</span></h5><br><br>
 @endif
 
 @endif

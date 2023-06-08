@@ -42,8 +42,8 @@
 <div class="row">
 
     <div class="form-group col-md-12">
-        <label>Code <span class="required">*</span></label>
-        <input  class="form-control" name="code" type="text" placeholder="Your Order Invoice Number" required="" />
+        <label>Numéro <span class="required">*</span></label>
+        <input  class="form-control" name="code" type="text" placeholder="Numéro de Facture de la Commande" required="" />
 
     </div>
 
