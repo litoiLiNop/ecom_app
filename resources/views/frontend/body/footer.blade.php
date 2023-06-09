@@ -10,8 +10,8 @@ $setting = App\Models\SiteSetting::find(1);
                         <div class="position-relative newsletter-inner">
                             <div class="newsletter-content">
                                 <h2 class="mb-20">
-                                    Depuis Nos Rayons Remplissez <br />
-                                    Votre Panier Chez Vous
+                                    Surfez Sur Nos Rayons & Remplissez <br />
+                                    Votre Panier De Chez Vous
                                 </h2>
                                 <p class="mb-45">Commencez Votre Shopping Quotidien avec <span class="text-brand">Dôvv</span></p>
                                 <form class="form-subcriber d-flex">

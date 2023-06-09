@@ -307,7 +307,7 @@ $subcategories = App\Models\SubCategory::where('category_id',$category->id)->ord
 
 
            <li>
-                <a href="page-contact.html">Contact</a>
+                <a href="{{ route('home.blog') }}">Blog</a>
             </li>
         </ul>
     </nav>
@@ -550,7 +550,7 @@ $subcategories = App\Models\SubCategory::where('category_id',$category->id)->ord
                 <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-pinterest-white.svg') }}" alt="" /></a>
                 <a href="#"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-youtube-white.svg') }}" alt="" /></a>
             </div>
-            <div class="site-copyright">Copyright 2022 © Nest. All rights reserved. Powered by AliThemes.</div>
+            <div class="site-copyright">Copyright 2023 © e-MultiCommerce. All rights reserved. Powered by eBoutiQ.</div>
         </div>
     </div>
 </div>

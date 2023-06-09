@@ -19,6 +19,7 @@ use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ActiveUserController;
+use App\Http\Controllers\Backend\BlogController;
 
 use App\Http\Middleware\RedirectIfAuthenticated;
 
@@ -337,6 +338,40 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
         Route::get('/all/user', 'AllUser')->name('all-user');
         Route::get('/all/vendor', 'AllVendor')->name('all-vendor');
+    });
+
+    // Blog Category All Route
+    Route::controller(BlogController::class)->group(function () {
+
+        Route::get('/admin/blog/category', 'AllBlogCategory')->name('admin.blog.category');
+
+        Route::get('/admin/add/blog/category', 'AddBlogCategory')->name('add.blog.category');
+
+        Route::post('/admin/store/blog/category', 'StoreBlogCategory')->name('store.blog.category');
+        Route::get('/admin/edit/blog/category/{id}', 'EditBlogCategory')->name('edit.blog.category');
+
+        Route::post('/admin/update/blog/category', 'UpdateBlogCategory')->name('update.blog.category');
+
+        Route::get('/admin/delete/blog/category/{id}', 'DeleteBlogCategory')->name('delete.blog.category');
+
+
+    });
+
+
+
+    // Blog Post All Route
+    Route::controller(BlogController::class)->group(function () {
+
+        Route::get('/admin/blog/post', 'AllBlogPost')->name('admin.blog.post');
+
+        Route::get('/admin/add/blog/post', 'AddBlogPost')->name('add.blog.post');
+
+        Route::post('/admin/store/blog/post', 'StoreBlogPost')->name('store.blog.post');
+        Route::get('/admin/edit/blog/post/{id}', 'EditBlogPost')->name('edit.blog.post');
+
+        Route::post('/admin/update/blog/post', 'UpdateBlogPost')->name('update.blog.post');
+
+        Route::get('/admin/delete/blog/post/{id}', 'DeleteBlogPost')->name('delete.blog.post');
 
 
     });
@@ -405,6 +440,22 @@ Route::controller(CartController::class)->group(function () {
     Route::get('/cart-decrement/{rowId}', 'CartDecrement');
     Route::get('/cart-increment/{rowId}', 'CartIncrement');
 
+});
+
+// Frontend Blog Post All Route
+Route::controller(BlogController::class)->group(function () {
+
+    Route::get('/blog', 'AllBlog')->name('home.blog');
+    Route::get('/post/details/{id}/{slug}', 'BlogDetails');
+    Route::get('/post/category/{id}/{slug}', 'BlogPostCategory');
+
+});
+
+
+// Frontend Blog Post All Route
+Route::controller(ReviewController::class)->group(function () {
+
+    Route::post('/store/review', 'StoreReview')->name('store.review');
 
 });
 
