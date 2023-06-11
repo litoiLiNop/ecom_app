@@ -234,6 +234,7 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
+
                 <div class="menu-title">Gestion Blogs</div>
             </a>
             <ul>
@@ -248,20 +249,55 @@
         </li>
 
         <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"> <i class="bx bx-donate-blood"></i>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
-                <div class="menu-title">Icons</div>
+
+                <div class="menu-title">Gestion des Avis</div>
             </a>
             <ul>
-                <li> <a href="icons-line-icons.html"><i class="bx bx-right-arrow-alt"></i>Line Icons</a>
+                <li> <a href="{{ route('pending.review') }}"><i class="bx bx-right-arrow-alt"></i>En attente </a>
                 </li>
-                <li> <a href="icons-boxicons.html"><i class="bx bx-right-arrow-alt"></i>Boxicons</a>
+
+                    <li> <a href="{{ route('publish.review') }}"><i class="bx bx-right-arrow-alt"></i>Publiés</a>
                 </li>
-                <li> <a href="icons-feather-icons.html"><i class="bx bx-right-arrow-alt"></i>Feather Icons</a>
-                </li>
+
+
             </ul>
         </li>
+
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+
+                <div class="menu-title">Paramètres</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('site.setting') }}"><i class="bx bx-right-arrow-alt"></i>Paramètres du Site </a>
+                </li>
+
+                    <li> <a href="{{ route('seo.setting') }}"><i class="bx bx-right-arrow-alt"></i>SEO</a>
+                </li>
+        <li>
+
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+
+                <div class="menu-title">Gestion du Stock</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('product.stock') }}"><i class="bx bx-right-arrow-alt"></i>Articles en Stock </a>
+                </li>
+
+
+
+
+            </ul>
+        </li>
+
+
 
 
 

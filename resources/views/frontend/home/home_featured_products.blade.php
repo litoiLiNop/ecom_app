@@ -67,7 +67,7 @@ $featured = App\Models\Product::where('featured',1)->orderBy('id','DESC')->limit
                 </div>
                 <h2><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{ $product->product_name }}</a></h2>
 
-{{--
+
 @php
 $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
 $average = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
@@ -87,7 +87,7 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
                         @elseif($average == 5 || $average < 5)
                             <div class="product-rating" style="width: 100%"></div>
                         @endif
-                </div> --}}
+                </div>
 
                 @if($product->discount_price == NULL)
                  <div class="product-price mt-10">

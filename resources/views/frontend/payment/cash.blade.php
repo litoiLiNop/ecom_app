@@ -1,9 +1,9 @@
 @extends('frontend.master_dashboard')
 @section('main')
-{{--
+
  @section('title')
-   Cash Payment
-@endsection --}}
+   Paiement en espèces - eBoutiQ
+@endsection
 
  <div class="page-header breadcrumb-wrap">
             <div class="container">

@@ -1,6 +1,10 @@
 @extends('frontend.master_dashboard')
 @section('main')
 
+@section('title')
+ e-Dôvv Supermarché en ligne au Cameroun
+@endsection
+
      @include('frontend.home.home_slider')
 
         <!--End hero slider-->
@@ -80,11 +84,28 @@
                     <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a>
                 </div>
                 <h2><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $product->product_name }} </a></h2>
+@php
+$reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+$average = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+@endphp
+
                 <div class="product-rate-cover">
                     <div class="product-rate d-inline-block">
-                        <div class="product-rating" style="width: 90%"></div>
+                        @if($average == 0)
+
+                @elseif($average == 1 || $average < 2)
+                    <div class="product-rating" style="width: 20%"></div>
+                @elseif($average == 2 || $average < 3)
+                    <div class="product-rating" style="width: 40%"></div>
+                @elseif($average == 3 || $average < 4)
+                    <div class="product-rating" style="width: 60%"></div>
+                @elseif($average == 4 || $average < 5)
+                    <div class="product-rating" style="width: 80%"></div>
+                @elseif($average == 5 || $average < 5)
+                    <div class="product-rating" style="width: 100%"></div>
+                @endif
                     </div>
-                    <span class="font-small ml-5 text-muted"> (4.0)</span>
+                    <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}}) Avis</span>
                 </div>
                 <div>
                     @if($product->vendor_id == NULL)
@@ -200,11 +221,29 @@
                     <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a>
                 </div>
                 <h2><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $product->product_name }} </a></h2>
+
+                @php
+$reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+$average = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+@endphp
+
                 <div class="product-rate-cover">
                     <div class="product-rate d-inline-block">
-                        <div class="product-rating" style="width: 90%"></div>
+                        @if($average == 0)
+
+                @elseif($average == 1 || $average < 2)
+                    <div class="product-rating" style="width: 20%"></div>
+                @elseif($average == 2 || $average < 3)
+                    <div class="product-rating" style="width: 40%"></div>
+                @elseif($average == 3 || $average < 4)
+                    <div class="product-rating" style="width: 60%"></div>
+                @elseif($average == 4 || $average < 5)
+                    <div class="product-rating" style="width: 80%"></div>
+                @elseif($average == 5 || $average < 5)
+                    <div class="product-rating" style="width: 100%"></div>
+                @endif
                     </div>
-                    <span class="font-small ml-5 text-muted"> (4.0)</span>
+                    <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}}) Avis</span>
                 </div>
                 <div>
                     @if($product->vendor_id == NULL)
@@ -324,11 +363,29 @@
                     <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a>
                 </div>
                 <h2><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $product->product_name }} </a></h2>
+
+                @php
+$reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+$average = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+@endphp
+
                 <div class="product-rate-cover">
                     <div class="product-rate d-inline-block">
-                        <div class="product-rating" style="width: 90%"></div>
+                        @if($average == 0)
+
+                @elseif($average == 1 || $average < 2)
+                    <div class="product-rating" style="width: 20%"></div>
+                @elseif($average == 2 || $average < 3)
+                    <div class="product-rating" style="width: 40%"></div>
+                @elseif($average == 3 || $average < 4)
+                    <div class="product-rating" style="width: 60%"></div>
+                @elseif($average == 4 || $average < 5)
+                    <div class="product-rating" style="width: 80%"></div>
+                @elseif($average == 5 || $average < 5)
+                    <div class="product-rating" style="width: 100%"></div>
+                @endif
                     </div>
-                    <span class="font-small ml-5 text-muted"> (4.0)</span>
+                    <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}}) Avis</span>
                 </div>
                 <div>
                     @if($product->vendor_id == NULL)
@@ -389,12 +446,11 @@
 
 
 
-
         <section class="section-padding mb-30">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 col-md-6 mb-sm-5 mb-md-0 wow animate__animated animate__fadeInUp" data-wow-delay="0">
-                        <h4 class="section-title style-1 mb-30 animated animated"> Bonnes Affaires </h4>
+                        <h4 class="section-title style-1 mb-30 animated animated"> Hot Deals </h4>
                         <div class="product-list-small animated animated">
 
          @foreach($hot_deals as $item)
@@ -403,25 +459,39 @@
             <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"><img src="{{ asset( $item->product_thumbnail ) }}" alt="" /></a>
         </figure>
         <div class="col-md-8 mb-0">
-            <h6>
-                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $item->product_name }} </a>
-            </h6>
+            <h6><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $item->product_name }} </a></h6>
+
+@php
+$reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+$average = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+@endphp
             <div class="product-rate-cover">
                 <div class="product-rate d-inline-block">
-                    <div class="product-rating" style="width: 90%"></div>
-                </div>
-                <span class="font-small ml-5 text-muted"> (4.0)</span>
+                    @if($average == 0)
+
+                        @elseif($average == 1 || $average < 2)
+                            <div class="product-rating" style="width: 20%"></div>
+                        @elseif($average == 2 || $average < 3)
+                            <div class="product-rating" style="width: 40%"></div>
+                        @elseif($average == 3 || $average < 4)
+                            <div class="product-rating" style="width: 60%"></div>
+                        @elseif($average == 4 || $average < 5)
+                            <div class="product-rating" style="width: 80%"></div>
+                        @elseif($average == 5 || $average < 5)
+                            <div class="product-rating" style="width: 100%"></div>
+                        @endif                    </div>
+                        <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}}) Avis</span>
             </div>
              @if($item->discount_price == NULL)
                      <div class="product-price">
-                        <span>{{ $item->selling_price }} F</span>
+                        <span>{{ $item->selling_price }} Fcfa</span>
 
                     </div>
 
                     @else
                     <div class="product-price">
-                        <span>{{ $item->discount_price }} F</span>
-                        <span class="old-price">{{ $item->selling_price }} F</span>
+                        <span>{{ $item->discount_price }} Fcfa</span>
+                        <span class="old-price">{{ $item->selling_price }} Fcfa</span>
                     </div>
                     @endif
         </div>
@@ -437,7 +507,7 @@
 
 
                     <div class="col-xl-3 col-lg-4 col-md-6 mb-md-0 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                        <h4 class="section-title style-1 mb-30 animated animated">  Offres Spéciales </h4>
+                        <h4 class="section-title style-1 mb-30 animated animated">  Special Offer </h4>
                         <div class="product-list-small animated animated">
 
 
@@ -450,22 +520,38 @@
             <h6>
                 <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $item->product_name }} </a>
             </h6>
+
+@php
+$reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+$average = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+@endphp
             <div class="product-rate-cover">
                 <div class="product-rate d-inline-block">
-                    <div class="product-rating" style="width: 90%"></div>
-                </div>
-                <span class="font-small ml-5 text-muted"> (4.0)</span>
+                    @if($average == 0)
+
+                        @elseif($average == 1 || $average < 2)
+                            <div class="product-rating" style="width: 20%"></div>
+                        @elseif($average == 2 || $average < 3)
+                            <div class="product-rating" style="width: 40%"></div>
+                        @elseif($average == 3 || $average < 4)
+                            <div class="product-rating" style="width: 60%"></div>
+                        @elseif($average == 4 || $average < 5)
+                            <div class="product-rating" style="width: 80%"></div>
+                        @elseif($average == 5 || $average < 5)
+                            <div class="product-rating" style="width: 100%"></div>
+                        @endif                    </div>
+                        <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}}) Avis</span>
             </div>
              @if($item->discount_price == NULL)
                      <div class="product-price">
-                        <span>{{ $item->selling_price }} F</span>
+                        <span>{{ $item->selling_price }} Fcfa</span>
 
                     </div>
 
                     @else
                     <div class="product-price">
-                        <span>{{ $item->discount_price }} F</span>
-                        <span class="old-price">{{ $item->selling_price }} F</span>
+                        <span>{{ $item->discount_price }} Fcfa</span>
+                        <span class="old-price">{{ $item->selling_price }} Fcfa</span>
                     </div>
                     @endif
         </div>
@@ -477,7 +563,7 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-4 col-md-6 mb-sm-5 mb-md-0 d-none d-lg-block wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                        <h4 class="section-title style-1 mb-30 animated animated">Récents</h4>
+                        <h4 class="section-title style-1 mb-30 animated animated">Recently added</h4>
                         <div class="product-list-small animated animated">
 
 
@@ -490,22 +576,38 @@
             <h6>
                 <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $item->product_name }} </a>
             </h6>
+
+@php
+$reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+$average = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+@endphp
             <div class="product-rate-cover">
                 <div class="product-rate d-inline-block">
-                    <div class="product-rating" style="width: 90%"></div>
-                </div>
-                <span class="font-small ml-5 text-muted"> (4.0)</span>
+                    @if($average == 0)
+
+                        @elseif($average == 1 || $average < 2)
+                            <div class="product-rating" style="width: 20%"></div>
+                        @elseif($average == 2 || $average < 3)
+                            <div class="product-rating" style="width: 40%"></div>
+                        @elseif($average == 3 || $average < 4)
+                            <div class="product-rating" style="width: 60%"></div>
+                        @elseif($average == 4 || $average < 5)
+                            <div class="product-rating" style="width: 80%"></div>
+                        @elseif($average == 5 || $average < 5)
+                            <div class="product-rating" style="width: 100%"></div>
+                        @endif                    </div>
+                        <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}}) Avis</span>
             </div>
              @if($item->discount_price == NULL)
                      <div class="product-price">
-                        <span>{{ $item->selling_price }} F</span>
+                        <span>{{ $item->selling_price }} Fcfa</span>
 
                     </div>
 
                     @else
                     <div class="product-price">
-                        <span>{{ $item->discount_price }} F</span>
-                        <span class="old-price">{{ $item->selling_price }} F</span>
+                        <span>{{ $item->discount_price }} Fcfa</span>
+                        <span class="old-price">{{ $item->selling_price }} Fcfa</span>
                     </div>
                     @endif
         </div>
@@ -530,22 +632,38 @@
             <h6>
                 <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $item->product_name }} </a>
             </h6>
+
+@php
+$reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+$average = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+@endphp
             <div class="product-rate-cover">
                 <div class="product-rate d-inline-block">
-                    <div class="product-rating" style="width: 90%"></div>
-                </div>
-                <span class="font-small ml-5 text-muted"> (4.0)</span>
+                    @if($average == 0)
+
+                        @elseif($average == 1 || $average < 2)
+                            <div class="product-rating" style="width: 20%"></div>
+                        @elseif($average == 2 || $average < 3)
+                            <div class="product-rating" style="width: 40%"></div>
+                        @elseif($average == 3 || $average < 4)
+                            <div class="product-rating" style="width: 60%"></div>
+                        @elseif($average == 4 || $average < 5)
+                            <div class="product-rating" style="width: 80%"></div>
+                        @elseif($average == 5 || $average < 5)
+                            <div class="product-rating" style="width: 100%"></div>
+                        @endif                    </div>
+                        <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}}) Avis</span>
             </div>
              @if($item->discount_price == NULL)
                      <div class="product-price">
-                        <span>{{ $item->selling_price }} F</span>
+                        <span>{{ $item->selling_price }} Fcfa</span>
 
                     </div>
 
                     @else
                     <div class="product-price">
-                        <span>{{ $item->discount_price }} F</span>
-                        <span class="old-price">{{ $item->selling_price }} F</span>
+                        <span>{{ $item->discount_price }} Fcfa</span>
+                        <span class="old-price">{{ $item->selling_price }} Fcfa</span>
                     </div>
                     @endif
         </div>
@@ -559,7 +677,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+</section>
         <!--End 4 columns-->
 
 

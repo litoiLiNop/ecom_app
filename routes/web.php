@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ActiveUserController;
 use App\Http\Controllers\Backend\BlogController;
+use App\Http\Controllers\Backend\SiteSettingController;
 
 use App\Http\Middleware\RedirectIfAuthenticated;
 
@@ -31,6 +32,7 @@ use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\AllUserController;
+use App\Http\Controllers\User\ReviewController;
 
 
 
@@ -134,6 +136,12 @@ Route::middleware(['auth', 'role:vendor'])->group(function () {
 
     });
 
+    Route::controller(ReviewController::class)->group(function () {
+
+        Route::get('/vendor/all/review', 'VendorAllReview')->name('vendor.all.review');
+
+    });
+
 
 
 
@@ -216,6 +224,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/product/inactive/{id}', 'ProductInactive')->name('product.inactive');
         Route::get('/product/active/{id}', 'ProductActive')->name('product.active');
         Route::get('/delete/product/{id}', 'ProductDelete')->name('delete.product');
+
+        // For Product Stock
+        Route::get('/product/stock', 'ProductStock')->name('product.stock');
 
 
     });
@@ -376,6 +387,25 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     });
 
+    // Admin Review All Route
+    Route::controller(ReviewController::class)->group(function () {
+
+        Route::get('/pending/review', 'PendingReview')->name('pending.review');
+        Route::get('/review/approve/{id}', 'ReviewApprove')->name('review.approve');
+        Route::get('/publish/review', 'PublishReview')->name('publish.review');
+        Route::get('/review/delete/{id}', 'ReviewDelete')->name('review.delete');
+    });
+
+    // Site Setting All Route
+    Route::controller(SiteSettingController::class)->group(function () {
+
+        Route::get('/site/setting', 'SiteSetting')->name('site.setting');
+        Route::post('/site/setting/update', 'SiteSettingUpdate')->name('site.setting.update');
+
+        Route::get('/seo/setting', 'SeoSetting')->name('seo.setting');
+        Route::post('/seo/setting/update', 'SeoSettingUpdate')->name('seo.setting.update');
+    });
+
 
 
 
@@ -452,7 +482,7 @@ Route::controller(BlogController::class)->group(function () {
 });
 
 
-// Frontend Blog Post All Route
+// Frontend Review All Route
 Route::controller(ReviewController::class)->group(function () {
 
     Route::post('/store/review', 'StoreReview')->name('store.review');

@@ -1,7 +1,7 @@
 @extends('frontend.master_dashboard')
 @section('main')
 @section('title')
-   Blog Page
+  Page des Blogs - eBoutiQ
 @endsection
 
 <div class="page-header mt-15 mb-15">

@@ -1,9 +1,9 @@
 @extends('frontend.master_dashboard')
 @section('main')
-{{--
+
 @section('title')
-    Comparaison
-@endsection --}}
+    Page de Comparaison - eBoutiQ
+@endsection
 
 
 <div class="page-header breadcrumb-wrap">

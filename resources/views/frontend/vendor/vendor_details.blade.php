@@ -1,6 +1,10 @@
 @extends('frontend.master_dashboard')
 @section('main')
 
+@section('title')
+    Vendeur {{ $vendor->name }} - eBoutiQ
+@endsection
+
   <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">

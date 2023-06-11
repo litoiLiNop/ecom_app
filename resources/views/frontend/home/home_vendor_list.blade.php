@@ -23,7 +23,7 @@ $vendors = App\Models\User::where('status','active')->where('role','vendor')->or
                         <div class="vendor-wrap mb-40">
                             <div class="vendor-img-action-wrap">
                                 <div class="vendor-img">
-                                    <a href="vendor-details-1.html">
+                                    <a href="{{ route('vendor.details',$vendor->id) }}">
      <img class="default-img" src="{{ (!empty($vendor->photo)) ? url('upload/vendor_images/'.$vendor->photo):url('upload/no_image.jpg') }}" style="width:120px;height: 120px;" alt="" />
                                     </a>
                                 </div>

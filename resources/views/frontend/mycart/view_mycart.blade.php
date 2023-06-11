@@ -1,9 +1,9 @@
 @extends('frontend.master_dashboard')
 @section('main')
-{{--
+
 @section('title')
-  MyCart Page
-@endsection --}}
+  Soumission à la Caisse - eBoutiQ
+@endsection
 
  <div class="page-header breadcrumb-wrap">
             <div class="container">

@@ -2,7 +2,7 @@
 @section('main')
 
 @section('title')
-   {{ $blogdetails->post_title }}
+   {{ $blogdetails->post_title }} - eBoutiQ
 @endsection
 
  <div class="page-header breadcrumb-wrap">

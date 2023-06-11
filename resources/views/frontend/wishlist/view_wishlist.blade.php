@@ -2,7 +2,7 @@
 @section('main')
 
 @section('title')
-    Liste d'Achats
+    Page de la Liste d'Achats - eBoutiQ
 @endsection
 
 <div class="page-header breadcrumb-wrap">
