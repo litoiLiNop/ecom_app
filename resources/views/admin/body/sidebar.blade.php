@@ -131,7 +131,7 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
-                <div class="menu-title">Gestion Livraisons </div>
+                <div class="menu-title">Gestion Destinations </div>
             </a>
             <ul>
                 <li> <a href="{{ route('all.region') }}"><i class="bx bx-right-arrow-alt"></i>Regions</a>
@@ -145,11 +145,10 @@
         </li>
 
 
-        <li class="menu-label">UI Elements</li>
 
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-cart'></i>
+                <div class="parent-icon"><i class='bx bx-category'></i>
                 </div>
                 <div class="menu-title">Gestion Vendeurs </div>
             </a>
@@ -162,10 +161,11 @@
             </ul>
         </li>
 
+        <li class="menu-label">Commandes</li>
 
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-cart'></i>
+                <div class="parent-icon"><i class='bx bx-category'></i>
                 </div>
                 <div class="menu-title">Gestion Commandes </div>
             </a>
@@ -184,9 +184,9 @@
 
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-cart'></i>
+                <div class="parent-icon"><i class='bx bx-category'></i>
                 </div>
-                <div class="menu-title">Gestion renvois </div>
+                <div class="menu-title">Gestion Renvois </div>
             </a>
             <ul>
                 <li> <a href="{{ route('return.request') }}"><i class="bx bx-right-arrow-alt"></i>Requêtes</a>
@@ -198,9 +198,9 @@
 
         <li>
             <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-cart'></i>
+                <div class="parent-icon"><i class='bx bx-category'></i>
                 </div>
-                <div class="menu-title">Gestion Rapports </div>
+                <div class="menu-title"> Rapport Activité </div>
             </a>
             <ul>
                 <li> <a href="{{ route('report.view') }}"><i class="bx bx-right-arrow-alt"></i>Revue</a>
@@ -274,13 +274,18 @@
                 <div class="menu-title">Paramètres</div>
             </a>
             <ul>
-                <li> <a href="{{ route('site.setting') }}"><i class="bx bx-right-arrow-alt"></i>Paramètres du Site </a>
+                <li> <a href="{{ route('site.setting') }}"><i class="bx bx-right-arrow-alt"></i>Du Site </a>
                 </li>
 
-                    <li> <a href="{{ route('seo.setting') }}"><i class="bx bx-right-arrow-alt"></i>SEO</a>
+                <li> <a href="{{ route('seo.setting') }}"><i class="bx bx-right-arrow-alt"></i>SEO</a>
                 </li>
+
+
+            </ul>
+        </li>
+
+
         <li>
-
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
@@ -291,36 +296,51 @@
                 <li> <a href="{{ route('product.stock') }}"><i class="bx bx-right-arrow-alt"></i>Articles en Stock </a>
                 </li>
 
-
-
-
             </ul>
         </li>
 
+        <li class="menu-label">Gestion Accès</li>
+				<li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon"><i class="bx bx-category"></i>
+						</div>
+						<div class="menu-title">Rôles & Accès</div>
+					</a>
+					<ul>
+						<li> <a href="{{ route('all.permission') }}"><i class="bx bx-right-arrow-alt"></i> Les Permissions</a>
+						</li>
+						<li> <a href="{{ route('all.roles') }}"><i class="bx bx-right-arrow-alt"></i>Les Rôles</a>
+						</li>
+                        <li> <a href="{{ route('add.roles.permission') }}"><i class="bx bx-right-arrow-alt"></i>Attributions</a>
+						</li>
+
+						<li> <a href="{{ route('all.roles.permission') }}"><i class="bx bx-right-arrow-alt"></i>Les Accès</a>
+						</li>
+
+					</ul>
+				</li>
+
+                <li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon"><i class="bx bx-line-chart"></i>
+						</div>
+						<div class="menu-title">Gestion des Admins  </div>
+					</a>
+					<ul>
+						<li> <a href="{{ route('all.admin') }}"><i class="bx bx-right-arrow-alt"></i> Admins</a>
+						</li>
+						<li> <a href="{{ route('add.admin') }}"><i class="bx bx-right-arrow-alt"></i>Ajout Admin</a>
+						</li>
+
+
+					</ul>
+				</li>
 
 
 
 
 
 
-
-
-        <li class="menu-label">Charts & Maps</li>
-        <li>
-            <a class="has-arrow" href="javascript:;">
-                <div class="parent-icon"><i class="bx bx-line-chart"></i>
-                </div>
-                <div class="menu-title">Charts</div>
-            </a>
-            <ul>
-                <li> <a href="charts-apex-chart.html"><i class="bx bx-right-arrow-alt"></i>Apex</a>
-                </li>
-                <li> <a href="charts-chartjs.html"><i class="bx bx-right-arrow-alt"></i>Chartjs</a>
-                </li>
-                <li> <a href="charts-highcharts.html"><i class="bx bx-right-arrow-alt"></i>Highcharts</a>
-                </li>
-            </ul>
-        </li>
 
 
 
