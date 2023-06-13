@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Notifications\VendorApproveNotification;
+use Illuminate\Support\Facades\Notification;
 
 class AdminController extends Controller
 {
@@ -127,10 +129,13 @@ class AdminController extends Controller
     public function ActiveVendorApprove(Request $request)
     {
 
-        $verdor_id = $request->id;
-        $user = User::findOrFail($verdor_id)->update([
+        $vendor_id = $request->id;
+        $user = User::findOrFail($vendor_id)->update([
             'status' => 'active',
         ]);
+
+        $vuser = User::where('role', 'vendor')->get();
+        Notification::send($vuser, new VendorApproveNotification($request));
 
         $notification = array(
             'message' => 'Vendeur Activé ',

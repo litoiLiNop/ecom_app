@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class VendorRegNotification extends Notification
+class VendorApproveNotification extends Notification
 {
     use Queueable;
 
@@ -19,6 +19,7 @@ class VendorRegNotification extends Notification
     public function __construct($request)
     {
         $this->request = $request;
+
     }
 
     /**
@@ -55,7 +56,7 @@ class VendorRegNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'message' => 'Requête pour nouveau compte vendeur'
+            'message' => 'Un Admin a approuvé votre compte'
         ];
     }
 }

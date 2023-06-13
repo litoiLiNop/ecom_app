@@ -23,7 +23,7 @@ $status = $vendorId->status;
 
                 <li>
                 <a href="{{ route('vendor.dashboard') }}">
-                    <div class="parent-icon"><i class='bx bx-cookie'></i>
+                    <div class="parent-icon"><i class='bx bx-home-circle'></i>
                     </div>
                     <div class="menu-title">Tableau de bord</div>
                 </a>
@@ -34,7 +34,7 @@ $status = $vendorId->status;
 
             <li>
                 <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                    <div class="parent-icon"><i class='bx bx-category'></i>
                     </div>
                     <div class="menu-title">Gestion Produit </div>
                 </a>

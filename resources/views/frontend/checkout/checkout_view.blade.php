@@ -275,6 +275,7 @@
   			$('select[name="ville_id"]').on('change', function(){
   				var ville_id = $(this).val();
   				if (ville_id) {
+                    function ville(){
   					$.ajax({
   						url: "{{ url('/quartier-get/ajax') }}/"+ville_id,
   						type: "GET",
@@ -288,6 +289,7 @@
   						},
 
   					});
+                }
   				} else {
   					alert('danger');
   				}

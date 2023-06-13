@@ -27,6 +27,7 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\ShopController;
 
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CheckoutController;
@@ -535,6 +536,14 @@ Route::controller(BlogController::class)->group(function () {
 
 });
 
+// Frontend Review All Route
+Route::controller(ReviewController::class)->group(function () {
+
+    Route::post('/store/review', 'StoreReview')->name('store.review');
+
+});
+
+
 // Search All Route
 Route::controller(IndexController::class)->group(function () {
 
@@ -544,12 +553,13 @@ Route::controller(IndexController::class)->group(function () {
 });
 
 
-// Frontend Review All Route
-Route::controller(ReviewController::class)->group(function () {
+// Shop Page All Route
+Route::controller(ShopController::class)->group(function () {
 
-    Route::post('/store/review', 'StoreReview')->name('store.review');
-
+    Route::get('/shop', 'ShopPage')->name('shop.page');
 });
+
+
 
 
 
