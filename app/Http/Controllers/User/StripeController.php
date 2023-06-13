@@ -127,7 +127,7 @@ class StripeController extends Controller
     public function CashOrder(Request $request)
     {
 
-        // $user = User::where('role', 'admin')->get();
+        $user = User::where('role', 'admin')->get();
 
         if (Session::has('coupon')) {
             $total_amount = Session::get('coupon')['total_amount'];
@@ -210,6 +210,8 @@ class StripeController extends Controller
             'message' => 'Commande enregistrée',
             'alert-type' => 'success'
         );
+
+        Notification::send($user, new OrderComplete($request->name));
 
         return redirect()->route('dashboard')->with($notification);
 

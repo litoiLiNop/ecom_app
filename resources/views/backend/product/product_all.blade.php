@@ -10,13 +10,15 @@
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Tous les produits <li class="breadcrumb-item active" aria-current="page">All Product  <span class="badge rounded-pill bg-danger"> {{ count($products) }} </span> </li></li>
+								<li class="breadcrumb-item active" aria-current="page">Tous les produits <li class="breadcrumb-item active" aria-current="page">Tous les articles  <span class="badge rounded-pill bg-danger"> {{ count($products) }} </span> </li></li>
 							</ol>
 						</nav>
 					</div>
 					<div class="ms-auto">
 						<div class="btn-group">
-		<a href="{{ route('add.product') }}" class="btn btn-primary">Ajout Produit</a>
+@if(Auth::user()->can('ajout.article'))
+		<a href="{{ route('add.product') }}" class="btn btn-primary">Ajout Article</a>
+        @endif
 						</div>
 					</div>
 				</div>
@@ -70,15 +72,25 @@
 				   </td>
 
 				<td>
+@if(Auth::user()->can('edition.article'))
 <a href="{{ route('edit.product',$item->id) }}" class="btn btn-info" title="Editer"> <i class="fa fa-pencil"></i> </a>
+@endif
+@if(Auth::user()->can('suppression.article'))
 <a href="{{ route('delete.product',$item->id) }}" class="btn btn-danger" id="delete" title="Supprimer" ><i class="fa fa-trash"></i></a>
+@endif
+
 
 <a href="{{ route('edit.category',$item->id) }}" class="btn btn-warning" title="Détails"> <i class="fa fa-eye"></i> </a>
 
+
+@if(Auth::user()->can('inactive.article'))
 @if($item->status == 1)
 <a href="{{ route('product.inactive',$item->id) }}" class="btn btn-primary" title="Désactiver"> <i class="fa-solid fa-thumbs-down"></i> </a>
+@endif
+@if(Auth::user()->can('active.article'))
 @else
 <a href="{{ route('product.active',$item->id) }}" class="btn btn-primary" title="Activer"> <i class="fa-solid fa-thumbs-up"></i> </a>
+@endif
 @endif
 
 				</td>

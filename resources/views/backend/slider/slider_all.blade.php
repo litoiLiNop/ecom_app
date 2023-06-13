@@ -16,7 +16,10 @@
 					</div>
 					<div class="ms-auto">
 						<div class="btn-group">
+@if(Auth::user()->can('ajout.glissiere'))
+
 		<a href="{{ route('add.slider') }}" class="btn btn-primary">Ajout Glissière</a>
+        @endif
 						</div>
 					</div>
 				</div>
@@ -45,8 +48,13 @@
 				<td> <img src="{{ asset($item->slider_image) }}" style="width: 70px; height:40px;" >  </td>
 
 				<td>
-<a href="{{ route('edit.slider',$item->id) }}" class="btn btn-info">Edit</a>
-<a href="{{ route('delete.slider',$item->id) }}" class="btn btn-danger" id="delete" >Delete</a>
+@if(Auth::user()->can('edition.glissiere'))
+<a href="{{ route('edit.slider',$item->id) }}" class="btn btn-info">Editer</a>
+@endif
+
+@if(Auth::user()->can('suppression.glissiere'))
+<a href="{{ route('delete.slider',$item->id) }}" class="btn btn-danger" id="delete" >Supprimer</a>
+@endif
 
 				</td>
 			</tr>

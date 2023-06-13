@@ -20,7 +20,7 @@
             </a>
         </li>
 
-
+@if(Auth::user()->can('menu.marque'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-category'></i>
@@ -28,13 +28,21 @@
                 <div class="menu-title">Gestion Marque</div>
             </a>
             <ul>
+                @if(Auth::user()->can('liste.marque'))
                 <li> <a href="{{ route('all.brand') }}"><i class="bx bx-right-arrow-alt"></i>Toutes les  Marques</a>
                 </li>
+                @endif
+                @if(Auth::user()->can('ajout.marque'))
                 <li> <a href="{{ route('add.brand') }}"><i class="bx bx-right-arrow-alt"></i>Ajout Marque </a>
                 </li>
+                @endif
 
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.catégorie'))
+
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
@@ -49,7 +57,10 @@
 
             </ul>
         </li>
+@endif
 
+
+@if(Auth::user()->can('menu.souscatégorie'))
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -65,7 +76,10 @@
 
             </ul>
         </li>
+@endif
 
+
+@if(Auth::user()->can('menu.article'))
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -74,13 +88,20 @@
                 <div class="menu-title">Gestion Article</div>
             </a>
             <ul>
+                @if(Auth::user()->can('liste.article'))
                 <li> <a href="{{ route('all.product') }}"><i class="bx bx-right-arrow-alt"></i>Tous les Articles</a>
                 </li>
+                @endif
+                @if(Auth::user()->can('ajout.article'))
                 <li> <a href="{{ route('add.product') }}"><i class="bx bx-right-arrow-alt"></i>Ajout <Article></Article></a>
                 </li>
+                @endif
 
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.glissiere'))
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -89,13 +110,21 @@
                 <div class="menu-title">Gestion Glissière</div>
             </a>
             <ul>
+@if(Auth::user()->can('liste.glissiere'))
                 <li> <a href="{{ route('all.slider') }}"><i class="bx bx-right-arrow-alt"></i>Toutes les Glissières</a>
                 </li>
+                @endif
+
+@if(Auth::user()->can('ajout.glissiere'))
                 <li> <a href="{{ route('add.slider') }}"><i class="bx bx-right-arrow-alt"></i>Ajout Glissière</a>
                 </li>
+                @endif
 
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.pubs'))
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -111,6 +140,10 @@
 
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.coupon'))
+
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -126,6 +159,9 @@
 
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.destination'))
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -143,8 +179,9 @@
 
             </ul>
         </li>
+@endif
 
-
+@if(Auth::user()->can('menu.vendeur'))
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -160,6 +197,9 @@
 
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.commande'))
 
         <li class="menu-label">Commandes</li>
 
@@ -172,8 +212,10 @@
             <ul>
                 <li> <a href="{{ route('pending.order') }}"><i class="bx bx-right-arrow-alt"></i>En attente</a>
                 </li>
+
                 <li> <a href="{{ route('admin.confirmed.order') }}"><i class="bx bx-right-arrow-alt"></i>Confirmées </a>
                 </li>
+
                 <li> <a href="{{ route('admin.processing.order') }}"><i class="bx bx-right-arrow-alt"></i>En Process</a>
                 </li>
                 <li> <a href="{{ route('admin.delivered.order') }}"><i class="bx bx-right-arrow-alt"></i>Lvrées</a>
@@ -181,6 +223,9 @@
 
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.renvoi'))
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -195,6 +240,9 @@
                 </li>
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.rapport'))
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -211,6 +259,10 @@
 
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.utilisateur'))
+
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -228,6 +280,9 @@
 
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.blog'))
 
 
         <li>
@@ -247,6 +302,9 @@
 
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.avis'))
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -265,6 +323,9 @@
 
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.paramètre'))
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -283,7 +344,10 @@
 
             </ul>
         </li>
+@endif
 
+
+@if(Auth::user()->can('menu.stock'))
 
         <li>
             <a href="javascript:;" class="has-arrow">
@@ -298,6 +362,10 @@
 
             </ul>
         </li>
+@endif
+
+@if(Auth::user()->can('menu.permission.role'))
+
 
         <li class="menu-label">Gestion Accès</li>
 				<li>
@@ -319,6 +387,10 @@
 
 					</ul>
 				</li>
+@endif
+
+
+@if(Auth::user()->can('menu.admin.utilisateur'))
 
                 <li>
 					<a class="has-arrow" href="javascript:;">
@@ -336,7 +408,7 @@
 					</ul>
 				</li>
 
-
+@endif
 
 
 

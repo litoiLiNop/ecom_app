@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use App\Notifications\VendorRegNotification;
+use Illuminate\Support\Facades\Notification;
 
 
 class VendorController extends Controller
@@ -109,7 +111,7 @@ class VendorController extends Controller
 
     public function VendorRegister(Request $request)
     {
-        // $vuser = User::where('role', 'admin')->get();
+        $vuser = User::where('role', 'admin')->get();
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -133,7 +135,7 @@ class VendorController extends Controller
             'alert-type' => 'success'
         );
 
-        // Notification::send($vuser, new VendorRegNotification($request));
+        Notification::send($vuser, new VendorRegNotification($request));
 
         return redirect()->route('vendor.login')->with($notification);
 
