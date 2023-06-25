@@ -45,7 +45,7 @@ class CompareController extends Controller
 
         $compare = Compare::with('product')->where('user_id', Auth::id())->latest()->get();
 
-        $compQty = compare::count();
+        $compQty = Compare::where('user_id', Auth::id())->count();
 
         return response()->json(['compare' => $compare, 'compQty' => $compQty]);
 

@@ -10,10 +10,10 @@ $setting = App\Models\SiteSetting::find(1);
                         <div class="position-relative newsletter-inner">
                             <div class="newsletter-content">
                                 <h2 class="mb-20">
-                                    Surfez Sur Nos Rayons Remplissez <br />
-                                    Votre Panier De Chez Vous
+                                    Votre Panier Se Remplit<br />
+                                    En Visitant Nos Rayons
                                 </h2>
-                                <p class="mb-45">Commencez Votre Shopping Quotidien avec <span class="text-brand">Dôvv</span></p>
+                                <p class="mb-45">Commencez Votre Shopping Quotidien avec <span class="text-brand">eBoutiQ</span></p>
                                 <form class="form-subcriber d-flex">
                                     <input type="email" placeholder="Votre Emaill Addresse" />
                                     <button class="btn" type="submit">Souscrire</button>
@@ -104,7 +104,7 @@ $setting = App\Models\SiteSetting::find(1);
                         <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0 wow animate__animated animate__fadeInUp" data-wow-delay="0">
                             <div class="logo mb-30">
  <a href="index.html" class="mb-15"><img src="{{ asset($setting->logo) }}" alt="logo" /></a>
-                                <p class="font-lg text-heading">Votre Marché à côté</p>
+                                <p class="font-lg text-heading">Le Marché en cliquant</p>
                             </div>
 
 <ul class="contact-infor">
@@ -193,7 +193,7 @@ $setting = App\Models\SiteSetting::find(1);
                         <a href="{{ $setting->youtube }}"><img src="{{ asset('frontend/assets/imgs/theme/icons/icon-youtube-white.svg') }}" alt="" /></a>
                     </div>
 
-                    <p class="font-sm">Plus de 15% de réduction lors de votre votre souscription</p>
+                    <p class="font-sm">Plus de 15% de réduction lors de votre souscription</p>
                 </div>
             </div>
         </div>

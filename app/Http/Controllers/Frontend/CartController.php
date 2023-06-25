@@ -9,8 +9,8 @@ use App\Models\ShipRegion;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use Auth;
 use Illuminate\Support\Facades\Session;
+use Auth;
 
 class CartController extends Controller
 {

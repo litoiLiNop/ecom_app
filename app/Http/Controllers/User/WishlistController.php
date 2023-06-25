@@ -49,7 +49,7 @@ class WishlistController extends Controller
 
         $wishlist = Wishlist::with('product')->where('user_id', Auth::id())->latest()->get();
 
-        $wishQty = wishlist::count();
+        $wishQty = wishlist::where('user_id', Auth::id())->count();
 
         return response()->json(['wishlist' => $wishlist, 'wishQty' => $wishQty]);
 

@@ -113,11 +113,11 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
      @else
 
 <div class="attr-detail attr-size mb-30">
-        <strong class="mr-10" style="width:50px;">Size : </strong>
+        <strong class="mr-10" style="width:50px;">Taille:</strong>
          <select class="form-control unicase-form-control" id="dsize">
          	<option selected="" disabled="">--Choisir--</option>
          	@foreach($product_size as $size)
-         	<option value="{{ $size }}">{{ ucwords($size)  }}</option>
+         	<option value="{{ $size }}">{{ ucwords($size) }}</option>
          	@endforeach
          </select>
     </div>
@@ -130,7 +130,7 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
      @else
 
 <div class="attr-detail attr-size mb-30">
-        <strong class="mr-10" style="width:50px;">Mesure : </strong>
+        <strong class="mr-10" style="width:50px;">Mesure:</strong>
          <select class="form-control unicase-form-control" id="dsize">
          	<option selected="" disabled="">--Choisir--</option>
          	@foreach($product_format as $format)
@@ -148,7 +148,7 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
      @else
 
 <div class="attr-detail attr-size mb-30">
-        <strong class="mr-10" style="width:50px;">Color : </strong>
+        <strong class="mr-10" style="width:50px;">Couleur:</strong>
          <select class="form-control unicase-form-control" id="dcolor">
          	<option selected="" disabled="">--Choisir--</option>
          	@foreach($product_color as $color)
@@ -177,8 +177,10 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
     <button type="submit" class="button button-add-to-cart" onclick="addToCartDetails()"><i class="fi-rs-shopping-cart"></i>Add to cart</button>
 
 
-                        <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                        <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
+    <a aria-label="Comparer" class="action-btn" id="{{ $product->id }}" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
+
+    <a aria-label="Ajout Liste" class="action-btn" id="{{ $product->id }}" onclick="addToWishList(this.id)"  ><i class="fi-rs-heart"></i></a>
+
                     </div>
                 </div>
 
@@ -218,10 +220,10 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
     <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">Description</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab" href="#Additional-info">Additional info</a>
+    <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab" href="#Additional-info">Détails</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" id="Vendor-info-tab" data-bs-toggle="tab" href="#Vendor-info">Vendor</a>
+    <a class="nav-link" id="Vendor-info-tab" data-bs-toggle="tab" href="#Vendor-info">Vendeur</a>
 </li>
 <li class="nav-item">
     <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews"> ({{ count($reviewcount) }}) Avis</a>
@@ -238,85 +240,19 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
     <table class="font-md">
         <tbody>
             <tr class="stand-up">
-                <th>Stand Up</th>
+                <th>Mesure</th>
                 <td>
                     <p>35″L x 24″W x 37-45″H(front to back wheel)</p>
                 </td>
             </tr>
-            <tr class="folded-wo-wheels">
-                <th>Folded (w/o wheels)</th>
-                <td>
-                    <p>32.5″L x 18.5″W x 16.5″H</p>
-                </td>
-            </tr>
-            <tr class="folded-w-wheels">
-                <th>Folded (w/ wheels)</th>
-                <td>
-                    <p>32.5″L x 24″W x 18.5″H</p>
-                </td>
-            </tr>
-            <tr class="door-pass-through">
-                <th>Door Pass Through</th>
-                <td>
-                    <p>24</p>
-                </td>
-            </tr>
-            <tr class="frame">
-                <th>Frame</th>
-                <td>
-                    <p>Aluminum</p>
-                </td>
-            </tr>
-            <tr class="weight-wo-wheels">
-                <th>Weight (w/o wheels)</th>
-                <td>
-                    <p>20 LBS</p>
-                </td>
-            </tr>
-            <tr class="weight-capacity">
-                <th>Weight Capacity</th>
-                <td>
-                    <p>60 LBS</p>
-                </td>
-            </tr>
-            <tr class="width">
-                <th>Width</th>
-                <td>
-                    <p>24″</p>
-                </td>
-            </tr>
-            <tr class="handle-height-ground-to-handle">
-                <th>Handle height (ground to handle)</th>
-                <td>
-                    <p>37-45″</p>
-                </td>
-            </tr>
-            <tr class="wheels">
-                <th>Wheels</th>
-                <td>
-                    <p>12″ air / wide track slick tread</p>
-                </td>
-            </tr>
-            <tr class="seat-back-height">
-                <th>Seat back height</th>
-                <td>
-                    <p>21.5″</p>
-                </td>
-            </tr>
-            <tr class="head-room-inside-canopy">
-                <th>Head room (inside canopy)</th>
-                <td>
-                    <p>25″</p>
-                </td>
-            </tr>
             <tr class="pa_color">
-                <th>Color</th>
+                <th>Couleur</th>
                 <td>
                     <p>Black, Blue, Red, White</p>
                 </td>
             </tr>
             <tr class="pa_size">
-                <th>Size</th>
+                <th>Taille</th>
                 <td>
                     <p>M, S</p>
                 </td>
@@ -564,9 +500,11 @@ $reviews = App\Models\Review::where('product_id',$product->id)->latest()->limit(
                 </a>
             </div>
             <div class="product-action-1">
-                <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
-                <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="shop-wishlist.html" tabindex="0"><i class="fi-rs-heart"></i></a>
-                <a aria-label="Compare" class="action-btn small hover-up" href="shop-compare.html" tabindex="0"><i class="fi-rs-shuffle"></i></a>
+<a aria-label="Ajout Liste" class="action-btn" id="{{ $product->id }}" onclick="addToWishList(this.id)"  ><i class="fi-rs-heart"></i></a>
+
+<a aria-label="Comparer" class="action-btn" id="{{ $product->id }}" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
+
+<a aria-label="Prévisualiser" class="action-btn" data-bs-toggle="modal" data-bs-target="#quickViewModal" id="{{ $product->id }}" onclick="productView(this.id)" ><i class="fi-rs-eye"></i></a>
             </div>
 
             	 @php
@@ -575,9 +513,6 @@ $reviews = App\Models\Review::where('product_id',$product->id)->latest()->limit(
 
     @endphp
             <div class="product-badges product-badges-position product-badges-mrg">
-
-
-
 
                  @if($product->discount_price == NULL)
                     <span class="new">New</span>
@@ -588,21 +523,45 @@ $reviews = App\Models\Review::where('product_id',$product->id)->latest()->limit(
             </div>
         </div>
         <div class="product-content-wrap">
-            <h2><a href="shop-product-right.html" tabindex="0">{{ $product->product_name }}</a></h2>
-            <div class="rating-result" title="90%">
+            <h2><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}" tabindex="0">{{ $product->product_name }}</a></h2>
+
+            {{-- <div class="rating-result" title="90%">
                 <span> </span>
-            </div>
+            </div> --}}
+            @php
+$reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+$average = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+@endphp
+
+                <div class="product-rate-cover">
+                    <div class="product-rate d-inline-block">
+                        @if($average == 0)
+
+                @elseif($average == 1 || $average < 2)
+                    <div class="product-rating" style="width: 20%"></div>
+                @elseif($average == 2 || $average < 3)
+                    <div class="product-rating" style="width: 40%"></div>
+                @elseif($average == 3 || $average < 4)
+                    <div class="product-rating" style="width: 60%"></div>
+                @elseif($average == 4 || $average < 5)
+                    <div class="product-rating" style="width: 80%"></div>
+                @elseif($average == 5 || $average < 5)
+                    <div class="product-rating" style="width: 100%"></div>
+                @endif
+                    </div>
+                    <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}}) Avis</span>
+                </div>
 
             @if($product->discount_price == NULL)
                      <div class="product-price">
-                        <span>${{ $product->selling_price }}</span>
+                        <span>{{ $product->selling_price }} Fcfa</span>
 
                     </div>
 
                     @else
                     <div class="product-price">
-                        <span>${{ $product->discount_price }}</span>
-                        <span class="old-price">${{ $product->selling_price }}</span>
+                        <span>{{ $product->discount_price }} Fcfa</span>
+                        <span class="old-price">{{ $product->selling_price }} Fcfa</span>
                     </div>
                     @endif
 

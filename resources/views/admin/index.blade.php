@@ -2,7 +2,7 @@
 @section('admin')
 
 @php
-	$date = date('d-m-y');
+	$date = date('d F Y');
 	$today = App\Models\Order::where('order_date',$date)->sum('amount');
 
 	$month = date('F');
@@ -97,7 +97,7 @@
 									<div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
 								<div class="d-flex align-items-center text-white">
-									<p class="mb-0">En attente</p>
+									<p class="mb-0">Cmde(s) en attente</p>
 									<p class="mb-0 ms-auto">+2.2%<span><i class='bx bx-up-arrow-alt'></i></span></p>
 								</div>
 							</div>

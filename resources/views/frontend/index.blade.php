@@ -2,7 +2,7 @@
 @section('main')
 
 @section('title')
- e-Dôvv Supermarché en ligne au Cameroun
+ eBoutiQ - Supermarché en ligne au Cameroun
 @endsection
 
      @include('frontend.home.home_slider')
@@ -333,7 +333,7 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
                     </a>
                 </div>
                 <div class="product-action-1">
-                    <a aria-label="Ajout Liste" class="action-btn" id="{{ $product->id }}" onclick="addToWishList(this.id)"  ><i class="fi-rs-heart"></i></a>
+<a aria-label="Ajout Liste" class="action-btn" id="{{ $product->id }}" onclick="addToWishList(this.id)"  ><i class="fi-rs-heart"></i></a>
 
 <a aria-label="Comparer" class="action-btn" id="{{ $product->id }}" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
 
@@ -453,13 +453,13 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
                         <h4 class="section-title style-1 mb-30 animated animated"> Hot Deals </h4>
                         <div class="product-list-small animated animated">
 
-         @foreach($hot_deals as $item)
+         @foreach($hot_deals as $product)
     <article class="row align-items-center hover-up">
         <figure class="col-md-4 mb-0">
-            <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"><img src="{{ asset( $item->product_thumbnail ) }}" alt="" /></a>
+            <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug)}}"><img src="{{ asset( $product->product_thumbnail ) }}" alt="" /></a>
         </figure>
         <div class="col-md-8 mb-0">
-            <h6><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $item->product_name }} </a></h6>
+            <h6><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $product->product_name }} </a></h6>
 
 @php
 $reviewcount = App\Models\Review::where('product_id',$product->id)->where('status',1)->latest()->get();
@@ -482,16 +482,16 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
                         @endif                    </div>
                         <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}}) Avis</span>
             </div>
-             @if($item->discount_price == NULL)
+             @if($product->discount_price == NULL)
                      <div class="product-price">
-                        <span>{{ $item->selling_price }} Fcfa</span>
+                        <span>{{ $product->selling_price }} Fcfa</span>
 
                     </div>
 
                     @else
                     <div class="product-price">
-                        <span>{{ $item->discount_price }} Fcfa</span>
-                        <span class="old-price">{{ $item->selling_price }} Fcfa</span>
+                        <span>{{ $product->discount_price }} Fcfa</span>
+                        <span class="old-price">{{ $product->selling_price }} Fcfa</span>
                     </div>
                     @endif
         </div>
@@ -511,14 +511,14 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
                         <div class="product-list-small animated animated">
 
 
-      @foreach($special_offer as $item)
+      @foreach($special_offer as $product)
     <article class="row align-items-center hover-up">
         <figure class="col-md-4 mb-0">
-            <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"><img src="{{ asset( $item->product_thumbnail ) }}" alt="" /></a>
+            <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"><img src="{{ asset( $product->product_thumbnail ) }}" alt="" /></a>
         </figure>
         <div class="col-md-8 mb-0">
             <h6>
-                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $item->product_name }} </a>
+                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $product->product_name }} </a>
             </h6>
 
 @php
@@ -542,16 +542,16 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
                         @endif                    </div>
                         <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}}) Avis</span>
             </div>
-             @if($item->discount_price == NULL)
+             @if($product->discount_price == NULL)
                      <div class="product-price">
-                        <span>{{ $item->selling_price }} Fcfa</span>
+                        <span>{{ $product->selling_price }} Fcfa</span>
 
                     </div>
 
                     @else
                     <div class="product-price">
-                        <span>{{ $item->discount_price }} Fcfa</span>
-                        <span class="old-price">{{ $item->selling_price }} Fcfa</span>
+                        <span>{{ $product->discount_price }} Fcfa</span>
+                        <span class="old-price">{{ $product->selling_price }} Fcfa</span>
                     </div>
                     @endif
         </div>
@@ -567,14 +567,14 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
                         <div class="product-list-small animated animated">
 
 
-  @foreach($new as $item)
+  @foreach($new as $product)
     <article class="row align-items-center hover-up">
         <figure class="col-md-4 mb-0">
-            <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"><img src="{{ asset( $item->product_thumbnail ) }}" alt="" /></a>
+            <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"><img src="{{ asset( $product->product_thumbnail ) }}" alt="" /></a>
         </figure>
         <div class="col-md-8 mb-0">
             <h6>
-                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $item->product_name }} </a>
+                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $product->product_name }} </a>
             </h6>
 
 @php
@@ -598,16 +598,16 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
                         @endif                    </div>
                         <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}}) Avis</span>
             </div>
-             @if($item->discount_price == NULL)
+             @if($product->discount_price == NULL)
                      <div class="product-price">
-                        <span>{{ $item->selling_price }} Fcfa</span>
+                        <span>{{ $product->selling_price }} Fcfa</span>
 
                     </div>
 
                     @else
                     <div class="product-price">
-                        <span>{{ $item->discount_price }} Fcfa</span>
-                        <span class="old-price">{{ $item->selling_price }} Fcfa</span>
+                        <span>{{ $product->discount_price }} Fcfa</span>
+                        <span class="old-price">{{ $product->selling_price }} Fcfa</span>
                     </div>
                     @endif
         </div>
@@ -623,14 +623,14 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
                         <div class="product-list-small animated animated">
 
 
-  @foreach($special_deals as $item)
+  @foreach($special_deals as $product)
     <article class="row align-items-center hover-up">
         <figure class="col-md-4 mb-0">
-            <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"><img src="{{ asset( $item->product_thumbnail ) }}" alt="" /></a>
+            <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"><img src="{{ asset( $product->product_thumbnail ) }}" alt="" /></a>
         </figure>
         <div class="col-md-8 mb-0">
             <h6>
-                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $item->product_name }} </a>
+                <a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $product->product_name }} </a>
             </h6>
 
 @php
@@ -654,16 +654,16 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
                         @endif                    </div>
                         <span class="font-small ml-5 text-muted"> ({{ count($reviewcount)}}) Avis</span>
             </div>
-             @if($item->discount_price == NULL)
+             @if($product->discount_price == NULL)
                      <div class="product-price">
-                        <span>{{ $item->selling_price }} Fcfa</span>
+                        <span>{{ $product->selling_price }} Fcfa</span>
 
                     </div>
 
                     @else
                     <div class="product-price">
-                        <span>{{ $item->discount_price }} Fcfa</span>
-                        <span class="old-price">{{ $item->selling_price }} Fcfa</span>
+                        <span>{{ $product->discount_price }} Fcfa</span>
+                        <span class="old-price">{{ $product->selling_price }} Fcfa</span>
                     </div>
                     @endif
         </div>

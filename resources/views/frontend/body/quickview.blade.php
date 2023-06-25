@@ -76,7 +76,7 @@
         <ul>
             <li class="mb-5">Marque: <span class="text-brand" id="pbrand"> </span></li>
             <li class="mb-5">Categorie:<span class="text-brand" id="pcategory"> </span></li>
-            <li class="mb-5">Boutique:<span class="text-brand" id="pvendor_id"> </span></li>
+            {{-- <li class="mb-5">Boutique:<span class="text-brand" id="pvendor_id"> </span></li> --}}
         </ul>
     </div>
 
@@ -88,7 +88,7 @@
             <div class="font-xs">
         <ul>
             <li class="mb-5">Code : <span class="text-brand" id="pcode"> </span></li>
-            <li class="mb-5">Stock:<span class="badge badge-pill badge-success" id="available" style="background:green; color: white;"> </span>
+            <li class="mb-5">Stock :<span class="badge badge-pill badge-success" id="available" style="background:green; color: white;"> </span>
                 <span class="badge badge-pill badge-danger" id="stockout" style="background:red; color: white;"> </span></li>
         </ul>
     </div>

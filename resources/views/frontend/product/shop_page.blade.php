@@ -2,19 +2,19 @@
 @section('main')
 
 @section('title')
-   Boutique
+   Shop Page
 @endsection
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
  <div class="page-header mt-30 mb-50">
             <div class="container">
                 <div class="archive-header">
                     <div class="row align-items-center">
                         <div class="col-xl-3">
-                            <h5 class="mb-15"> eBoutiQ </h5>
+                            <h5 class="mb-15"> Shop Page </h5>
                             <div class="breadcrumb">
-                                <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Accueil</a>
-                                <span></span>  Boutique
+                                <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                                <span></span>  Shop Page
                             </div>
                         </div>
 
@@ -27,13 +27,13 @@
                 <div class="col-lg-4-5">
                     <div class="shop-product-fillter">
                         <div class="totall-product">
- <p>Il y a <strong class="text-brand">{{ count($products) }}</strong> article pour toi!</p>
+ <p>We found <strong class="text-brand">{{ count($products) }}</strong> items for you!</p>
                         </div>
                         <div class="sort-by-product-area">
                             <div class="sort-by-cover mr-10">
                                 <div class="sort-by-product-wrap">
                                     <div class="sort-by">
-                                        <span><i class="fi-rs-apps"></i>Voir:</span>
+                                        <span><i class="fi-rs-apps"></i>Show:</span>
                                     </div>
                                     <div class="sort-by-dropdown-wrap">
                                         <span> 50 <i class="fi-rs-angle-small-down"></i></span>
@@ -84,7 +84,7 @@
                     </a>
                 </div>
                 <div class="product-action-1">
-                    <a aria-label="Add To Wishlist" class="action-btn" id="{{ $product->id }}" onclick="addToWishList(this.id)"  ><i class="fi-rs-heart"></i></a>
+    <a aria-label="Add To Wishlist" class="action-btn" id="{{ $product->id }}" onclick="addToWishList(this.id)"  ><i class="fi-rs-heart"></i></a>
 
    <a aria-label="Compare" class="action-btn"  id="{{ $product->id }}" onclick="addToCompare(this.id)"><i class="fi-rs-shuffle"></i></a>
 
@@ -94,13 +94,14 @@
     @php
     $amount = $product->selling_price - $product->discount_price;
     $discount = ($amount/$product->selling_price) * 100;
+
     @endphp
 
 
                 <div class="product-badges product-badges-position product-badges-mrg">
 
                     @if($product->discount_price == NULL)
-                    <span class="new">Nouveau</span>
+                    <span class="new">New</span>
                     @else
                     <span class="hot"> {{ round($discount) }} %</span>
                     @endif
@@ -123,7 +124,7 @@
                     @if($product->vendor_id == NULL)
 <span class="font-small text-muted">By <a href="vendor-details-1.html">Owner</a></span>
                     @else
-  <span class="font-small text-muted">Par <a href="vendor-details-1.html">{{ $product['vendor']['name'] }}</a></span>
+  <span class="font-small text-muted">By <a href="vendor-details-1.html">{{ $product['vendor']['name'] }}</a></span>
 
                     @endif
 
@@ -134,14 +135,14 @@
 
                     @if($product->discount_price == NULL)
                      <div class="product-price">
-                        <span>{{ $product->selling_price }} F</span>
+                        <span>${{ $product->selling_price }}</span>
 
                     </div>
 
                     @else
                     <div class="product-price">
-                        <span>{{ $product->discount_price }} F</span>
-                        <span class="old-price">{{ $product->selling_price }} F</span>
+                        <span>${{ $product->discount_price }}</span>
+                        <span class="old-price">${{ $product->selling_price }}</span>
                     </div>
                     @endif
 
@@ -192,44 +193,74 @@
 
 
    <div class="sidebar-widget price_range range mb-30">
-        <h5 class="section-title style-1 mb-30">Filtrer par prix</h5>
+
+    <form method="post" action="{{ route('shop.filter') }}">
+        @csrf
+
+        <h5 class="section-title style-1 mb-30">Fill by price</h5>
         <div class="price-filter">
             <div class="price-filter-inner">
-                <div id="slider-range" class="mb-20"></div>
-                <div class="d-flex justify-content-between">
-                    <div class="caption">From: <strong id="slider-range-value1" class="text-brand"></strong></div>
-                    <div class="caption">To: <strong id="slider-range-value2" class="text-brand"></strong></div>
-                </div>
+
+      <div id="slider-range" class="price-filter-range" data-min="0" data-max="2000" ></div>
+      <input type="hidden" id="price_range" name="price_range" value="">
+      <input type="text" id="amount" value="$0 - $2000" readonly="">
+
+    <br><br>
+
+     <button type="submit" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> Fillter</button>
+
             </div>
         </div>
         <div class="list-group">
             <div class="list-group-item mb-10 mt-10">
-                <label class="fw-900">Color</label>
-                <div class="custome-checkbox">
-                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox1" value="" />
-                    <label class="form-check-label" for="exampleCheckbox1"><span>Red (56)</span></label>
-                    <br />
-                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox2" value="" />
-                    <label class="form-check-label" for="exampleCheckbox2"><span>Green (78)</span></label>
-                    <br />
-                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox3" value="" />
-                    <label class="form-check-label" for="exampleCheckbox3"><span>Blue (54)</span></label>
-                </div>
-                <label class="fw-900 mt-15">Condition</label>
-                <div class="custome-checkbox">
-                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox11" value="" />
-                    <label class="form-check-label" for="exampleCheckbox11"><span>New (1506)</span></label>
-                    <br />
-                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox21" value="" />
-                    <label class="form-check-label" for="exampleCheckbox21"><span>Refurbished (27)</span></label>
-                    <br />
-                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox31" value="" />
-                    <label class="form-check-label" for="exampleCheckbox31"><span>Used (45)</span></label>
-                </div>
+
+
+    @if(!empty($_GET['category']))
+    @php
+    $filterCat = explode(',',$_GET['category']);
+    @endphp
+
+    @endif
+
+
+                <label class="fw-900">Category</label>
+@foreach($categories as $category)
+@php
+$products = App\Models\Product::where('category_id',$category->id)->get();
+@endphp
+
+    <div class="custome-checkbox">
+        <input class="form-check-input" type="checkbox" name="category[]" id="exampleCheckbox{{ $category->id }}" value="{{ $category->category_slug }}" @if(!empty($filterCat) && in_array($category->category_slug,$filterCat)) checked @endif  onchange="this.form.submit()" />
+        <label class="form-check-label" for="exampleCheckbox{{ $category->id }}"><span>{{ $category->category_name }} ({{ count($products) }})</span></label>
+
+    </div>
+@endforeach
+
+
+    @if(!empty($_GET['brand']))
+    @php
+    $filterBrand = explode(',',$_GET['brand']);
+    @endphp
+
+    @endif
+
+
+                <label class="fw-900 mt-15">Brand</label>
+   @foreach($brands as $brand)
+   <div class="custome-checkbox">
+        <input class="form-check-input" type="checkbox" name="brand[]" id="exampleBrand{{ $brand->id }}" value="{{ $brand->brand_slug }}" @if(!empty($filterBrand) && in_array($brand->brand_slug,$filterBrand)) checked @endif  onchange="this.form.submit()" />
+        <label class="form-check-label" for="exampleBrand{{ $brand->id }}"><span>{{ $brand->brand_name }}  </span></label>
+
+    </div>
+    @endforeach
+
             </div>
         </div>
-        <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> Fillter</a>
+
     </div>
+
+
+    </form>
 
 
                     <!-- Product sidebar Widget -->
@@ -266,7 +297,32 @@
             </div>
         </div>
 
+<script type="text/javascript">
 
+    $(document).ready(function (){
+        if ($('#slider-range').length > 0) {
+            const max_price = parseInt($('#slider-range').data('max'));
+            const min_price = parseInt($('#slider-range').data('min'));
+            let price_range = min_price+"-"+max_price;
+
+            let price = price_range.split('-');
+
+                $("#slider-range").slider({
+                    range: true,
+                    min: min_price,
+                    max: max_price,
+                    values: price,
+                slide: function (event, ui) {
+
+                $("#amount").val('$'+ui.values[0]+"-"+'$'+ui.values[1]);
+                $("#price_range").val(ui.values[0]+"-"+ui.values[1]);
+                }
+                });
+        }
+    })
+
+
+</script>
 
 
 @endsection
