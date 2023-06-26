@@ -13,7 +13,7 @@ $setting = App\Models\SiteSetting::find(1);
                                     Votre Panier Se Remplit<br />
                                     En Visitant Nos Rayons
                                 </h2>
-                                <p class="mb-45">Commencez Votre Shopping Quotidien avec <span class="text-brand">eBoutiQ</span></p>
+                                <p class="mb-45"> Votre Shopping Quotidien avec <span class="text-brand">eBoutiQ</span></p>
                                 <form class="form-subcriber d-flex">
                                     <input type="email" placeholder="Votre Emaill Addresse" />
                                     <button class="btn" type="submit">Souscrire</button>
