@@ -6,7 +6,7 @@ $categories = App\Models\Category::orderBy('category_name','ASC')->limit(7)->get
     <section class="product-tabs section-padding position-relative">
         <div class="container">
             <div class="section-title style-2 wow animate__animated animate__fadeIn">
-                <h3> Nouveautés </h3>
+                <h3> Derniers en date </h3>
                 <ul class="nav nav-tabs links" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="nav-tab-one"  data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one"  aria-selected="true">Tous</button>

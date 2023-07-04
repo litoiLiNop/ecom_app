@@ -8,14 +8,14 @@ $featured = App\Models\Product::where('featured',1)->orderBy('id','DESC')->limit
 <section class="section-padding pb-5">
             <div class="container">
                 <div class="section-title wow animate__animated animate__fadeIn">
-                    <h3 class=""> Featured Products </h3>
+                    <h3 class=""> Articles en vedette  </h3>
 
                 </div>
                 <div class="row">
                     <div class="col-lg-3 d-none d-lg-flex wow animate__animated animate__fadeIn">
                         <div class="banner-img style-2">
                             <div class="banner-text">
-                                <h2 class="mb-100">Bring nature into your home</h2>
+                                <h2 class="mb-100">Place à la Nature chez toi</h2>
                                 <a href="shop-grid-right.html" class="btn btn-xs">Shop Now <i class="fi-rs-arrow-small-right"></i></a>
                             </div>
                         </div>
@@ -107,7 +107,7 @@ $average = App\Models\Review::where('product_id',$product->id)->where('status',1
                     </div>
 
                 </div>
-                <a href="shop-cart.html" class="btn w-100 hover-up"><i class="fi-rs-shopping-cart mr-5"></i>Add To Cart</a>
+                <a href="shop-cart.html" class="btn w-100 hover-up"><i class="fi-rs-shopping-cart mr-5"></i>Ajout</a>
             </div>
         </div>
         <!--End product Wrap-->

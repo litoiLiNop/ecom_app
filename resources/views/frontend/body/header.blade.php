@@ -20,9 +20,9 @@
                     <div class="text-center">
                         <div id="news-flash" class="d-inline-block">
                             <ul>
-                                <li>100% Secure delivery without contacting the courier</li>
-                                <li>Supper Value Deals - Save more with coupons</li>
-                                <li>Trendy 25silver jewelry, save up 35% off today</li>
+                                <li>Livraison en toute sécurité sans contacter le livreur à votre porte</li>
+                                <li>Offres de valeur - Faites des économies avec des coupons</li>
+                                <li>Articles de qualité à la une aujourd'hui, économisez 35%</li>
                             </ul>
                         </div>
                     </div>
@@ -338,7 +338,7 @@ $subcategories = App\Models\SubCategory::where('category_id',$category->id)->ord
 
     <div class="header-action-icon-2">
         <a href="{{ route('wishlist') }}">
-            <img class="svgInject" alt="Widhlist" src="{{ asset('frontend/assets/imgs/theme/icons/icon-heart.svg') }}" />
+            <img class="svgInject" alt="Achats" src="{{ asset('frontend/assets/imgs/theme/icons/icon-heart.svg') }}" />
             <span class="pro-count blue" id="wishQty">0 </span>
         </a>
     </div>
@@ -612,13 +612,13 @@ $subcategories = App\Models\SubCategory::where('category_id',$category->id)->ord
 <div class="single-mobile-header-info">
     {{-- <a href="page-login.html"><i class="fi-rs-user"></i>Log In / Sign Up </a> --}}
     @auth
-<a href="{{ route('dashboard') }}"><span class="lable ml-0">Account</span></a>
+<a href="{{ route('dashboard') }}"><span class="lable ml-0">Compte</span></a>
 
 @else
 
-<a href="{{ route('login') }}"><i class="fi-rs-user"></i>Login</a>
+<a href="{{ route('login') }}"><i class="fi-rs-user"></i>Connexion</a>
 {{-- <span class="lable" style="margin-left: 2px; margin-right: 2px;" > | </span> --}}
-<a href="{{ route('register') }}"><i class="fi-rs-user"></i>Register</a>
+<a href="{{ route('register') }}"><i class="fi-rs-user"></i>Inscription</a>
 
 
 
